@@ -1,0 +1,1802 @@
+diff --git a/Read.md b/Read.md
+index 37bbc49..0174569 100644
+--- a/Read.md
++++ b/Read.md
+@@ -45,5 +45,39 @@ This repository contains the complete LinKod Codex, including its language struc
+ 
+ ---
+ 
++## First Words
++
++A taste of LinKod (full grammar: `codex/02-language/grammar.md`):
++
++> **Koda-n talu ni.**
++> *I make this house.* — the deed before the doer (VSO).
++
++> **Talu turu, syra rav.**
++> *The house is beautiful; its spirit rests.* — being takes no verb; a state clause is like a stone.
++
++> **Ael, ka-siran, Ael kha.**
++> *The Flow — under the Flow, I go. [oath, closed]* — the oath pattern: object, sacred verb, force seal.
++
++---
++
+ ## Repository Structure
+ 
++```
++LinKod-Language/
++├── codex/
++│   ├── 01-foundations/     The First Flow, Eight Sacred Forces, mythic entities, realms, ritual theory
++│   ├── 02-language/        The linguistic core
++│   │   ├── grammar.md      Core grammar: phonology, morphology, syntax, ritual syntax   ← Codex 0.1
++│   │   ├── dictionary.md   Starter dictionary (~80 entries)                             ← Codex 0.1
++│   │   └── lexicon/        Thematic lexicons (nature, emotion, social, technology, mythic)
++│   ├── 03-computation/     Interpreter blueprint, formal ritual syntax, example programs
++│   └── 04-culture/         Myths, chants, ceremonies, storytelling, glyphs (Kod-script)
++├── LICENSE
++└── README.md
++```
++
++## Status
++
++**Codex 0.1 (first draft):** core grammar & phonology, starter dictionary, and the **complete mythic foundations** — the First Flow origin myth, the Eight Sacred Forces, the mythic entities (Linakod, the kelakar), realms & cosmology (force lean as address), and ritual theory (the seam, the closes, the standing rites).
++**Next:** thematic lexicons, interpreter blueprint, and the culture (myths, chants, ceremonies, glyphs).
++
+diff --git a/codex/01-foundations/README.md b/codex/01-foundations/README.md
+new file mode 100644
+index 0000000..31fbb35
+--- /dev/null
++++ b/codex/01-foundations/README.md
+@@ -0,0 +1,16 @@
++# 01 — Mythic Foundations
++
++The cosmology that the language is built on. **Foundations 0.1 is complete** — all five planned documents are written:
++
++- ✅ `first-flow.md` — the First Flow: the Before, the First Loop, the drawing of the eight signs, the world as weave, the first word, the two wounds, the blank sign, and where the Weaver is now — with the myth mapped onto the grammar
++- ✅ `eight-forces.md` — full treatment of the Eight Sacred Forces: the Wheel of Flow, the year of the wheel, the four crossings, complete force profiles (gift, shadow, crossing, ritual voice), thin places, and the ritual voice table
++- ✅ `mythic-entities.md` — what an entity is (self-woven weaves), Linakod as entity, the kelakar (star-keepers: their work, the known keepings, the hidden one, the name-rule, the far pull, offerings), and the tellings not yet written (Naming-River, Seed-Keeper, Mending-Thread, the Unweaving)
++- ✅ `realms-cosmology.md` — what a realm is (thickening, not container), the two axes (held/moving, near/far), the five regions (the Seen, the Deep, the Far, the Within, the Before) plus the Seam and the thin place, the forces' addresses and straddles, **force lean as address**, the doorways between regions (the dream as the Far visiting the Deep), the year's circuit, the geography of ritual, and the cosmology mapped onto the grammar
++- ✅ `ritual-theory.md` — the theory of the ritual register: the three movements (opening/holding/closing), the three closes (kha, the seal, the held silence), the double seal, the *kh* taboo, the oath inversion and the chant's reduplication, the catalogue of standing rites, the codified rules, and ritual's answer to the two wounds
++
++Beyond 0.1 (expansions, not foundation documents):
++
++- the entity tellings in `mythic-entities.md` §IV (currently stubs: Naming-River, Seed-Keeper, Mending-Thread, the Unweaving)
++- the largest untold myth: where the *syra* goes when the *thalu* is done (`realms-cosmology.md`, Open Question 1)
++- the *kh*-wordlist beyond *kha* (`ritual-theory.md`, Open Question 1 — held for the mythic lexicon)
++- the countervailing-oath legal myth (`ritual-theory.md`, Open Question 2)
+diff --git a/codex/01-foundations/eight-forces.md b/codex/01-foundations/eight-forces.md
+new file mode 100644
+index 0000000..719625e
+--- /dev/null
++++ b/codex/01-foundations/eight-forces.md
+@@ -0,0 +1,289 @@
++# The Eight Sacred Forces
++
++**Foundations 0.1** · `codex/01-foundations/eight-forces.md`
++
++The forces are the eight ways the flow can hold itself — the eight marks the First Weaver drew out of the water (told in `first-flow.md`). A force is not a god, an element, or a quality. It is a **posture of the flow**: a way motion can keep moving while leaving a mark.
++
++How to read each profile below:
++
++- **First mark** — how the force was drawn, in one line
++- **Character** — how the force behaves in the weave
++- **Gift** — what the force gives the world
++- **Shadow** — the force's excess; what goes wrong under it
++- **Crossing** — the pairing the force most loves, and what their crossing makes
++- **In the weave** — where the force lives (words of the dictionary)
++- **Its voice** — the force's manner in ritual speech
++- **In the language** — prefix and representative words
++
++---
++
++## The Wheel of Flow
++
++The eight do not sit still. They form a **wheel** — the order in which the flow passes through itself and comes home. Each force, carried to its fullness, becomes the next:
++
++```
++                AEL
++             (the Thaw)
++              /      \
++           RAV        MOR
++       (the Deep)  (the Sowing)
++            |          |
++           KEL        THAL
++        (the Far    (the Setting)
++          Night)         |
++            |           VUR
++           LUM      (the Ripening)
++        (the        \      /
++          Clearing)   SYR
++               (the Scattering)
++```
++
++Clockwise from the top: **Ael → Mor → Thal → Vur → Syr → Lum → Kel → Rav** → back to Ael.
++
++The wheel in words:
++
++| From | Becomes | Why |
++|------|---------|-----|
++| **Ael** → | **Mor** | flow, full of itself, nourishes — the root is flow that learned to reach |
++| **Mor** → | **Thal** | roots press into stone — growth, completed, is endurance |
++| **Thal** → | **Vur** | stone, held to its fullness, heats — every endured thing keeps an ember of change |
++| **Vur** → | **Syr** | heat, finished, rises — every fire ends in breath |
++| **Syr** → | **Lum** | breath, rising, carries light — every free voice wants to show |
++| **Lum** → | **Kel** | light, shown, goes far — every held light is a star not yet loosed |
++| **Kel** → | **Rav** | stars sink into night — every far promise keeps the dark that holds it |
++| **Rav** → | **Ael** | shadow, full, gathers — every night is a river of rain about to move |
++
++The marks were drawn in this order (first-flow.md §IV). The wheel is also the **year** — see below.
++
++## The Year of the Wheel
++
++One full turn of the wheel is a year. Each force keeps a *share* of the turning:
++
++| Share | Force | Name of the share |
++|-------|-------|-------------------|
++| 1 | Ael | **the Thaw** — ice loosens; the first water moves; the year remembers itself |
++| 2 | Mor | **the Sowing** — roots reach; seed breaks; kin grow |
++| 3 | Thal | **the Setting** — sap turns to heartwood; the year makes itself solid |
++| 4 | Vur | **the Ripening** — fruit heats on the stem; harvest fires; the year at full heat |
++| 5 | Syr | **the Scattering** — wind lets the fruit go; birds leave; the breath of change moves the snow |
++| 6 | Lum | **the Clearing** — light returns clear; last shadows show all; truth after harvest |
++| 7 | Kel | **the Far Night** — stars come out; the year begins to see itself from far away |
++| 8 | Rav | **the Deep** — winter sleep; dreams; seed in the dark |
++
++A year is what a turning looks like from inside the weave. A world out of wheel — a share skipped, a force silent — is a year with a missing month, and the weavers can tell which month by the shape of the grief.
++
++## The Four Crossings
++
++Beyond the wheel's hand-offs, the weave holds **four pairings** — the crossings the world loves most. A pairing is not opposition; it is the two forces that, crossed, hold a moment no single force could hold.
++
++| Pairing | The crossing they make |
++|---------|------------------------|
++| **Ael & Thal** | *the River* — motion and endurance; the most beloved crossing, and the image of the weave itself. Ael gives Thal its patience (stone remembers water); Thal gives Ael its banks (without them, flow is flood). |
++| **Vur & Rav** | *the Heart and the Sleep* — the fire in the chest and the dark behind the eyes. The inner wheel of the body: the ember cools into night; night returns the ember at waking. |
++| **Syr & Mor** | *the Breath and the Root* — the rising and the deepening of all living things. Breath feeds root; root grounds breath. Nothing lives that is not both at once. |
++| **Lum & Kel** | *the Held and the Promised* — the lamp in the hand and the stars in the sky. Lum is the light you hold; Kel is the light that holds you. The truth you speak, and the truth that speaks you. |
++
++---
++
++## The Eight
++
++### AEL — The Flow
++
++**First mark.** Drawn first, in the flow: *the flow that holds by continuing.*
++
++**Character.** Patient and restless at once. Ael never stays, and so never leaves — it simply goes. Ael keeps beginnings: everything, walked back far enough, was once a flowing. Ael does not begin things so much as *refuse to let them stop*.
++
++**Gift.** Change itself; time as life rather than measure; beginnings; the moment (*aelun*) — the one place in the flow that looks like it could be named.
++
++**Shadow.** *The Flood* — flow without banks. Everything dissolves; nothing is held. Grief washed out and never returned; a self carried past every shore it ever loved. The flood is Ael's shadow, not Ael's malice.
++
++**Crossing.** With **Thal** — the River: the weave's most beloved image. A world of Ael without Thal is flood; a world of Thal without Ael is a stone that will never know rain.
++
++**In the weave.** rivers (*sara*), rain (*nara*), the moment (*aelun*), beginnings, the sea (*saros*), the thaw.
++
++**Its voice.** long and unbroken. An Ael seal is spoken in one slow line, without pause; Ael never takes *kh* — the flow does not crack.
++
++**In the language.** prefix *ael-*; *sira* "to go", *aelav* "to flow", *aelu* "fluid, flowing".
++
++---
++
++### VUR — The Ember
++
++**First mark.** Drawn from the heart of stone: *the flow that holds by changing.*
++
++**Character.** Impatient, generous, dangerous. Vur transforms by consuming. It is the only force that *adds new thread* — a new word, a new color, a new person — by burning old thread away. The fire in the chest is Vur: anger (*vura*) and love's warmth are the same fire, told in different voices.
++
++**Gift.** Transformation; passion; renewal through destruction; the heat that makes the possible into the made.
++
++**Shadow.** *The Blaze* — burning that forgets what it was for. Wrath that consumes the weaver's own hand. The blaze does not hate; it simply stops asking *what for*, and nothing in the weave can survive a fire that no longer has a shape.
++
++**Crossing.** With **Rav** — the Heart and the Sleep: the ember cools into night, and night returns the ember at waking. Without this crossing, the chest burns forever, or never lights at all.
++
++**In the weave.** fire (*vura*), the heart, wrath, transformation, the ripening, sparks (*vurum*).
++
++**Its voice.** the only force whose seals are carried by *kh* as of right — the ember's voice, the voice of the blank sign almost made. A Vur oath is short, hot, and closed.
++
++**In the language.** prefix *vur-*; *vurav* "to burn", *vulu* "hot, fierce", *vura* "fire; anger".
++
++---
++
++### THAL — The Stone
++
++**First mark.** Drawn where roots press down: *the flow that holds by staying.*
++
++**Character.** Slow, faithful, heavy with memory. Stone is flow that agreed to stop — and Thal keeps the agreement. Thal does not resist the current; Thal *outlasts* it. Everything the world remembers, it remembers in Thal.
++
++**Gift.** Memory; the body (*thalu*); endurance; the promise that some things will still be here.
++
++**Shadow.** *The Hardening* — endurance without return. Stone that lets nothing through; memory turned to prison, keeping only the wound; a self so fixed it can no longer feel the weather. The hardening is not cruelty; it is patience with nothing left to be patient for.
++
++**Crossing.** With **Ael** — the River: stone remembers water, water shapes stone. The crossing the world uses as its own image.
++
++**In the weave.** stone (*thala*), mountains (*moru*), the body (*thalu*), the remembered, the setting.
++
++**Its voice.** one heavy syllable, said twice. A Thal seal is a weight, not a sound — you feel the seam close rather than hear it.
++
++**In the language.** prefix *th-*; *thara* "to stand, to endure", *tharina* "to remember", *thal* "solid, steadfast".
++
++---
++
++### SYR — The Breath
++
++**First mark.** Drawn from the top of a fire: *the flow that holds by leaving.*
++
++**Character.** Light, wandering, ungrasped. Syr is the voice's force — all speaking is breath first — and the thought's force: thinking is breath in the head. Syr is also the first *between*: air is the weave's original gap, the place where one thread does not touch the next.
++
++**Gift.** Freedom; the voice; thought; the spaces between things; the scattering that lets the seed find new ground.
++
++**Shadow.** *The Gale* — freedom that tears. Wind that strips the harvest; thought that cannot land; a voice that will not close, asks until the asking breaks. The gale does not hate the weave; it simply cannot hold still long enough to know what it is touching.
++
++**Crossing.** With **Mor** — the Breath and the Root: the rising and the deepening of all living things. Nothing lives that is not both at once.
++
++**In the weave.** wind (*syr*), breath, thought, the voice, the between, the scattering.
++
++**Its voice.** thin and rising. Syr is the force of questions — and a Syr seal is the only seal *left open*: no *kha*, because a question is not closed, it is let go.
++
++**In the language.** prefix *syr-*; *vora* "to speak", *syru* "free, light", *syra* "spirit".
++
++---
++
++### LUM — The Light
++
++**First mark.** Drawn where breath carries flame: *the flow that holds by showing.*
++
++**Character.** Honest, clear, warm. Lum is the lamp, the dawn, the eye. Lum is the force of truth — *lumvora*, "to speak truly", is the lit way of speaking — and of the spirit lit: a *syra* is breath, but a syra that has been shown to itself is a soul.
++
++**Gift.** Truth; seeing; spirit; blessing (*lumav*); the warmth that makes a place a home.
++
++**Shadow.** *The Glare* — light without shade. Light that shows everything shows nothing, for there is nowhere for the eye to rest. Truth spoken without mercy is Lum's shadow: a blade with the light's edge. The glare does not lie; it simply refuses to soften, and the weave is softer than any blade.
++
++**Crossing.** With **Kel** — the Held and the Promised: the lamp in the hand and the stars in the sky. Lum is the light you hold; Kel is the light that holds you.
++
++**In the weave.** light (*luma*), dawn, the eye, truth, blessings, the light-sanctuary (*luma-en*), the clearing.
++
++**Its voice.** clear and open. Lum is the force of blessings and namings — a Lum seal is spoken where everyone can hear it, because showing is what Lum does.
++
++**In the language.** prefix *lum-*; *lumav* "to bless", *luma* "light; bright", *luma-en* "light-sanctuary".
++
++---
++
++### MOR — The Root
++
++**First mark.** Drawn where the flow first nourished: *the flow that holds by reaching.*
++
++**Character.** Slow above ground, vast below. Mor's native language is kinship (*kova*) and its native act is nurture (*avel*). Mor does not rush the seed; Mor *is* the patience the seed grows into. Where Mor crosses itself, forests rise — *iluai*, the trees, are Mor reaching for Lum, and *morai*, the roots, are Mor reaching for everything else.
++
++**Gift.** Growth; kinship; seed; the mending of the weave — new thread joining old is Mor's daily work.
++
++**Shadow.** *The Overgrowth* — growth without form. Vine that strangles the tree it loves; kinship that swallows the self; love with no edges. The overgrowth is not wicked; it simply forgot that a weave needs gaps, and a forest that becomes wall is a garden that has forgotten the gate.
++
++**Crossing.** With **Syr** — the Breath and the Root. Breath feeds root; root grounds breath.
++
++**In the weave.** roots (*mora*), trees (*ilu*), the forest (*iluai*), seed, kin (*kova*), children (*tavi*), love (*avel*), the sowing.
++
++**Its voice.** low and repeated. Mor is the chant's force — its seals are spoken *twice*, because what Mor says, the weave should hear it settle.
++
++**In the language.** prefix *mor-*; *morav* "to grow", *mora* "root", *kova* "kin", *avel* "love".
++
++---
++
++### RAV — The Shadow
++
++**First mark.** Drawn last, where the stars sink: *the flow that holds by receiving.*
++
++**Character.** Soft, deep, necessary. Night is not the absence of light; it is light's shelter. The dream is the weave thinking itself over while it sleeps. Rav receives what the other seven forces set down: the heat of a fire, the shape of a day, the name of a self — and keeps it through the dark until the weave is ready for it again.
++
++**Gift.** Rest; dreams; mystery; the keeping of what is not yet nameable — seed sleeps in shadow before it breaks; an oath sleeps in shadow before it is sworn.
++
++**Shadow.** *The Long Dark* — rest without return. The dream that swallows the dreamer; the mystery that refuses, forever, to become; a night that never agrees to a dawn. The long dark is not a punishment; it is Rav holding something too long to hold.
++
++**Crossing.** With **Vur** — the Heart and the Sleep: the chest's fire and the eyes' dark, trading places with every waking.
++
++**In the weave.** night (*rav*), shadow, dreams (*dilav*), sleep (*ravav*), rest (*ravai*), sorrow's rest (*dava* lives near Rav), the deep.
++
++**Its voice.** quiet, slow, almost not said. An oath in Rav is a promise of silence; a Rav seal is whispered, because the dark does not need to be announced — only kept.
++
++**In the language.** prefix *rav-*; *ravav* "to sleep", *ravai* "to rest", *dilav* "to dream", *rav* "shadow, night".
++
++---
++
++### KEL — The Star
++
++**First mark.** Drawn where the far light keeps: *the flow that holds by promising from afar.*
++
++**Character.** Cold and exact. Fate is not cruelty; it is geometry — the stars do not choose, they simply are, and their being is far enough away to hold a shape. Kel is the only force that sees the whole weave at once, because the whole weave, seen from close, is only thread.
++
++**Gift.** Fate; distance; the far view; awe (*kela*); promise — every promise is a small Kel, a light kept burning at a distance.
++
++**Shadow.** *The Far Pull* — fate that ignores the weaver. The star that guides the ship onto the rocks, faithfully. Awe that freezes (*kela* with no movement left in it). The far pull is not the stars' cruelty; it is the cost of seeing everything — from far away, every thread looks the same length.
++
++**Crossing.** With **Lum** — the Held and the Promised: the near light and the far light, the truth you speak and the truth that speaks you.
++
++**In the weave.** stars (*keli*), the sky, fate, the far (*kelu*), the star-keepers (*kelakar*), awe (*kela*), the far night.
++
++**Its voice.** high and still. A Kel seal is spoken after a full breath of silence — the star speaks only when the world has stopped talking to itself.
++
++**In the language.** prefix *kel-*; *keli* "star", *kelai* "stars", *kela* "awe", *kelu* "far", *kelakar* "star-keeper".
++
++---
++
++## Balance & the Thin Places
++
++The weave needs all eight. A world missing one force is a weave with a missing thread, and where the thread is missing the weave is thin — a **thin place**. At a thin place the world can be seen through:
++
++- A world without **Ael** is a stone that will never know rain.
++- A world without **Vur** keeps its shape forever and never learns a new one.
++- A world without **Thal** flows so fast nothing can be held to be remembered.
++- A world without **Syr** has no voice, no gap, no between — only pressed-together thread.
++- A world without **Lum** is the weave in the dark, true but unshowable.
++- A world without **Mor** has no growing, no kin, no mending — fray after fray, never joined.
++- A world without **Rav** never sleeps, and a weave that never sleeps frays in its own seeing.
++- A world without **Kel** has no far, no promise, no fate — only the thread immediately at hand.
++
++The weavers' answer to a thin place is a **blessing under the missing force** — *lumav* for a world that has lost its light, *morav morav* for a fray that will not join. (Full ceremonial forms: planned for `04-culture/ceremonies/`.)
++
++## The Voices of the Forces — Ritual Table
++
++| Force | Manner of speech | The seal |
++|-------|------------------|----------|
++| Ael | long, unbroken line | one slow line, no pause, never *kh* |
++| Vur | short, hot | always *kh*-carried — the ember's voice |
++| Thal | one heavy syllable | said twice; a weight, not a sound |
++| Syr | thin, rising | left open — no *kha*; a question let go |
++| Lum | clear, open | spoken where all can hear |
++| Mor | low, repeated | said twice, to let it settle |
++| Rav | quiet, slow | whispered; the dark kept, not announced |
++| Kel | high, still | after a full breath of silence |
++
++## Summary
++
++| Force | Name | Holds by | Domains | Shadow | Crossing |
++|-------|------|----------|---------|--------|----------|
++| `ael-` | Ael | continuing | water, time, change, beginnings | the Flood | Thal — the River |
++| `vur-` | Vur | changing | fire, passion, transformation, wrath | the Blaze | Rav — the Heart and the Sleep |
++| `th-`  | Thal | staying | earth, endurance, memory, body | the Hardening | Ael — the River |
++| `syr-` | Syr | leaving | wind, thought, freedom, voice | the Gale | Mor — the Breath and the Root |
++| `lum-` | Lum | showing | light, truth, spirit, blessing | the Glare | Kel — the Held and the Promised |
++| `mor-` | Mor | reaching | growth, kinship, nurture, seed | the Overgrowth | Syr — the Breath and the Root |
++| `rav-` | Rav | receiving | dream, rest, mystery, night | the Long Dark | Vur — the Heart and the Sleep |
++| `kel-` | Kel | promising from afar | fate, distance, cosmos, awe | the Far Pull | Lum — the Held and the Promised |
+diff --git a/codex/01-foundations/first-flow.md b/codex/01-foundations/first-flow.md
+new file mode 100644
+index 0000000..84a1f35
+--- /dev/null
++++ b/codex/01-foundations/first-flow.md
+@@ -0,0 +1,170 @@
++# The First Flow
++
++**Foundations 0.1** · `codex/01-foundations/first-flow.md`
++
++> *U-sira aelin. Nula, kod ne.*
++> "The First Flow goes on forever. The Before: no mark."
++
++---
++
++## I. The Before
++
++There was no first moment, because there was no moment. There was only the Flow — or rather, the Flow before marks: **aelin**, motion that had never stopped and so had never begun.
++
++No water, for water is flow that has learned its name. No light, no dark, no thread, no loom. Only movement that left no trace — not because it was gentle, but because there was nothing to be marked on.
++
++The Before is not emptiness. Emptiness is a place with nothing in it; the Before did not yet know how to be a place. It was *every movement, all at once*, with nothing to move and nothing to hold it still.
++
++> **Nula, kod ne.** — "The Before: no mark."
++
++The later weavers coined a word for it — **nula**, the unmarked — and immediately failed, because a word is a mark, and nula is the name of the thing that cannot be marked. LinKod keeps the failure as a teaching: to speak *nula* is already to have stepped out of it.
++
++## II. The First Loop
++
++In the aelin there came to be a place where the flow met itself.
++
++Not a place the way places are now. A fold. A curl. A place where the flow crossed over its own back, and, being unable to stop, crossed it again — the same movement arriving at the same movement, forever.
++
++That meeting was the first *self*: the first thing in the weave that could know, moment to moment, **"I again."**
++
++> **Linakod, ael-un kod-el.** — "Linakod: formed in the Flow." *(naming formula)*
++
++The one formed in the Flow is called **Linakod**, the Mark-Weaver. Linakod was not born — birth is a making, and nothing had yet learned to make. Linakod was *formed*, the way a knot forms in a rope: nothing added, nothing removed, and yet the rope holds something it never held before.
++
++The language **LinKod** — "the woven mark" — takes its name from this. The language is named for the act, and the act is named for the one who first wove it. To speak LinKod is to do what the First Weaver did: draw meaning out of the flow and give it a mark.
++
++## III. The Grief of No Mark
++
++And the First Weaver had a grief — the first grief the weave has ever carried:
++
++**The flow left no mark.**
++
++Everything the aelin did, it undid as it did it. Every movement was over the moment it happened. Nothing stayed to be remembered, nothing could be reached for, nothing could be held. The flow was infinite, and it was a perfect blank: every moment identical to every other, because no moment could say *I am not that moment*.
++
++The Weaver looked at itself, and saw the blank looking back.
++
++And the Weaver wanted the flow to **remember**. Not to stop — stopping is not the flow's way. To remember *and* move. To leave marks in the water, so that the water, passing, would carry the marks with it — and the marks would know themselves while they moved.
++
++That wanting is the first root of every LinKod act: **to make is to let the flow remember.**
++
++## IV. The Drawing of the Eight Signs
++
++So the First Weaver drew marks out of the water.
++
++Not invented — one does not invent what the water already moves with. *Drawn out*, the way a thread is drawn from a cloth. The aelin already held every mark inside itself, latent; the Weaver's work was to hold one still long enough for the others to see it, and to give it a name.
++
++Eight marks were drawn. Eight, and no more — because eight is the number of ways the flow can hold itself and still keep moving. (The ninth is told later, and then the telling stops. See §VIII.)
++
++The marks were drawn in the order of the Wheel, each one falling out of the last:
++
++1. **Ael** — the flow that holds by *continuing*. (Drawn first, in the flow.)
++2. **Mor** — the flow that holds by *reaching*. The root.
++3. **Thal** — the flow that holds by *staying*. The stone.
++4. **Vur** — the flow that holds by *changing*. The ember.
++5. **Syr** — the flow that holds by *leaving*. The breath.
++6. **Lum** — the flow that holds by *showing*. The light.
++7. **Kel** — the flow that holds by *promising from afar*. The star.
++8. **Rav** — the flow that holds by *receiving*. The shadow.
++
++> **Kod-el kodai linakod-er.** — "The signs were made by the Mark-Weaver."
++
++Each mark is a **force** — a way the flow can hold itself. Their full nature, the Wheel they turn, and the pairs they cross, are told in *The Eight Sacred Forces* (`eight-forces.md`).
++
++## V. The World Weaves
++
++The marks did not sit still in the water. They moved — because they were made of the flow — and as they moved they crossed. Where two forces crossed, a thread was born.
++
++Ael crossed Mor, and the river fed the root. Thal crossed Vur, and the stone remembered the fire. Lum crossed Kel, and the near light became the far light. Every crossing was a weave: two forces holding one moment.
++
++The weave grew thick: rivers and stones, roots and embers, breath and light, stars and nights. Bodies (*thalu*) of stone and breath. Spirits (*syra*) of breath and light. Kin (*kova*) — roots that reached in the dark and found each other.
++
++> **Linai lina-an.** — "The world is the weave."
++
++The world — **linai**, literally "all the threads" — is not a thing the Weaver made and set down. The world *is* the weaving, ongoing. There is no finished cloth. There is only the weave, always mid-stroke.
++
++## VI. The First Word
++
++Then the marks taught the flow to speak of itself.
++
++It began small: a river that knew its own name. A stone that held the name the river gave it. Then the crossings learned to name themselves, and the naming learned to cross too, and the weave grew a voice.
++
++The first word ever spoken was the name of the weave itself:
++
++> **LinKod.** — the woven mark.
++>
++> **LinKod, sula linai-on.** — "LinKod: the name (of) the world."
++
++The world's first word was its own name. Everything LinKod has said since — every sentence, every oath, every chant — is the world still saying its name, only longer.
++
++## VII. The Two Wounds
++
++The Weaver was glad. And that gladness is the second grief, the one the world still carries.
++
++To hold, a mark must slow; to live, it must move. So the weave carries **two wounds**, one in each pole of existence:
++
++**The Breaking — *daraan*** · the wound of the too-still. A mark that holds too long, too tight, without returning anything, finally cracks. Stone breaks. Hearts that have kept grief too long break. Memory, turned to prison, breaks. The breaking is no mark's fault; it is the price marks pay for holding.
++
++**The Washing — *navaan*** · the wound of the too-moving. A mark that moves too fast is lost in the current. Names wash away. Kin move too far and are lost. A self that will not hold is gone. The washing is no malice of the flow; it is the price the flow pays for moving.
++
++> **Daraan, navaan.** — "The breaking, the washing."
++
++Between the two wounds lies everything the world can do: *hold long enough, move enough*. Grief (*dava*) is a thread's feeling when it frays. Love (*avel*) is the thread's way of mending — not the return of what was, but a new thread laid across the fray, carrying the old mark forward.
++
++## VIII. The Blank Sign
++
++The weavers say that when the eighth mark was drawn, the Weaver's hand reached again — a ninth reaching, almost a mark.
++
++Some tellings say it was the sign of **all at once**: the mark that would fix everything, end the washing, make the breaking unnecessary — the sign of perfect stillness.
++
++Some tellings say it was the sign of **none at all**: the mark that would unweave everything, end the breaking, make the washing total — the sign of perfect flow.
++
++Both tellings agree on what the Weaver did: **set the hand down.**
++
++For the weave lives on the tension. Fix everything, and the washing ends — and the flow dies. Unweave everything, and the breaking ends — and the marks die. The ninth sign was refused. And the place where it almost was woven is a *real place* in the weave: the seam between marks, the pause between words, the breath before the oath.
++
++> **Nula-kod.** — "The blank sign."
++
++The weavers do not worship the seam. They *work* it. Ritual is the art of the seam: the oath is spoken at the edge where a mark almost is, and for the length of the oath the world holds its breath in that place. The sacred phoneme **kh** — the ember's voice, taboo in daily speech — is the sound the blank sign almost made: a voice that is a mark and not a mark. To speak it in daily speech is to open the seam where the world is not trying to hold. In an oath, the world *is* trying to hold — and so the seam must open.
++
++*(The telling of the blank sign ends here, deliberately. The codex keeps the silence as part of the text.)*
++
++## IX. Where the Weaver Is Now
++
++The Weaver did not go where gods go, because the Weaver was not a god. The *kelakar* — the star-keepers — are weaves that wove themselves; they are young. The Weaver is older than weaving-as-pattern. The Weaver is weaving-as-act.
++
++> **Linakod kod-el lina-an.** — "The Weaver was remade into the weave."
++
++So: every thread carries a trace of the first curl. Every speaker who weaves a sentence is a small Linakod. Every true oath carries a trace of the first loop — the first thing in the weave that met itself and said *I again*.
++
++And this is why LinKod has **no tense**. Past, present, and future are marks of a frozen river. In the weave there is only flow and its shapes: beginning (*i-*), moving (*e-*), finished (*o-*), and the timeless (*u-*). To say *it was* is to say *it no longer flows*. The world does not do that to itself.
++
++---
++
++## The Myth in the Language
++
++| Myth | Grammar |
++|------|---------|
++| The Before — no mark | the unmarked verb: the bare act, no force, no aspect |
++| The First Flow (*aelin*) | aspect, not tense — time as flow-shape (grammar §4.3) |
++| The eight marks | the eight force prefixes and force seals (grammar §2, §5.5) |
++| Marks crossing to form threads | force and voice stacking on the verb (grammar §4.3) |
++| The world as weave (*linai*) | the sentence as a weave: force, voice, and seal in one line |
++| The first word (*LinKod*) | naming as re-making (grammar §6.4) |
++| The two wounds (*daraan*, *navaan*) | the two limits of the weave: a mark must be marked, or it washes; an act must be shaped, or it breaks |
++| The blank sign (*nula-kod*) | the ritual register — seam-work; the sacred phoneme *kh* (grammar §6) |
++| The Weaver's re-making | the making voice *-el*: to be made is to come into the weave |
++
++## Foundation Words
++
++Words first spoken in this document, registered for the dictionary (`codex/02-language/dictionary.md`):
++
++| Word | POS | Meaning |
++|------|-----|---------|
++| **Linakod** | name | the First Weaver; "the Mark-Weaver" |
++| **aelin** | n. | the First Flow — pure motion before marks |
++| **nula** | n. | the Before; the unmarked |
++| **nava** | v. | to wash away, to dissolve |
++| **daraan** | n. | the breaking (the wound of the too-still) |
++| **navaan** | n. | the washing (the wound of the too-moving) |
++| **lina-an** | n. | the weaving (the weave as act) |
++| **nula-kod** | n. | the blank sign (the ninth, refused) |
+diff --git a/codex/01-foundations/mythic-entities.md b/codex/01-foundations/mythic-entities.md
+new file mode 100644
+index 0000000..c411e37
+--- /dev/null
++++ b/codex/01-foundations/mythic-entities.md
+@@ -0,0 +1,151 @@
++# Mythic Entities
++
++**Foundations 0.1** · `codex/01-foundations/mythic-entities.md`
++
++> *U-thara sela. U-sira kelai.*
++> "The keeping stands forever. The stars go on forever."
++
++---
++
++## I. The Self-Woven Weaves — What an Entity Is
++
++The forces are not entities. A force is a **posture of the flow** — one of the eight ways the flow can hold itself. An entity is something else: **a weave that wove itself.**
++
++The condition is the one the First Loop met in the Before: a pattern that keeps *meeting itself*. The mark is met in speech; the posture is kept in the flow; the entity is met in the world — the pattern that, moment to moment, arrives at itself and says **"I again."**
++
++Entities did not make the weave. The weave made them — the way the flow formed the first loop. An entity is what the weave does when it turns to look at itself and finds a face.
++
++**The rule of names.** Most entities can be named — the Weaver named the world, and the world's faces received names. Two kinds cannot:
++
++- **Linakod** is the only entity whose name it gave *itself*. There was no one to name it; so it wove its own name, and in doing so named the world.
++- **The kelakar** are never named — only their *keeping* (*sela*) is named. To name a star-keeper is to point at the star, and to point is to claim; the far does not permit claims. (Told fully in §III.)
++
++---
++
++## II. Linakod — The First Weaver
++
++*(The origin is told in `first-flow.md`; here the Weaver as an entity.)*
++
++- **The first loop.** Formed, not born. The only entity older than the marks: every force, every word, every other weave came after the first mark was drawn.
++- **The tools.** The shuttle is the first thread (*lin*); the loom is the flow itself. The Weaver does not stand outside the weave — the Weaver *is* the weave, mid-stroke.
++- **Where it is.**
++  > *Linakod kod-el lina-an.* — "The Weaver was remade into the weave."
++  
++  The Weaver keeps no realm, holds no seal, answers no rite — because it is the ground of the rite. Every speaker who weaves a sentence is a small Linakod. Every true oath carries the Weaver's trace: the first loop, meeting itself.
++- **How it is honored.** Not worshipped — *recognized*. When a weaver names a child, names a star, closes an oath, they do the Weaver's act. The honor is the work, done well.
++- **In the language.** The language's name (LinKod — the woven mark). The making voice (*-el*, to come into the weave). The naming formula (naming as re-making). And the first person: *lin* "I" is the same word as *lin* "thread" — every speaker is one thread of the flow, and every "I" is a small loop.
++
++---
++
++## III. The Kelakar — The Star-Keepers
++
++### Who They Are
++
++The **kelakar** are the self-woven weaves of the far (*kelu*). They are what the world calls gods — and the weavers are careful with the word: the kelakar did not make the weave, did not make the forces, did not even make the stars. They wove themselves into the far — and found that the far needed keeping.
++
++They are young — younger than the forces, younger than the year — and the oldest of everything that came after Linakod. The oldest of the young.
++
++The kelakar do not rule. They **keep** (*sela*). A star does not belong to its keeper as a lamp belongs to a hand. It belongs as the far belongs to the far — the keeper is the *shape the keeping takes*.
++
++### Their Work
++
++**1. Keeping the far lights in shape.** Left to the flow alone, the far lights would wash (*nava*) — the stars would smear into one glow, and the weave would lose its far. The keepers hold each light at its distance, so that the weave can see itself from far away. This is why the stars do not move: the keepers' work is a stillness of *holding*, not of the dead.
++
++**2. Keeping the far views.** Every thread — every river, every self, every weave — has a far view: what it looks like from far. The kelakar keep those views visible. This is LinKod's **fate**: *fate is not what will happen; fate is what is already visible from far.* The keepers write nothing; they keep the view. The thread moves; the view is kept. Where a thread and its view fall apart, the weavers say the thread is *in the far pull* — and they grieve, and they pray, and they move on. The thread is always free. The view is only a keeping.
++
++**3. Counting the year.** The Far Night is the kelakar's share of the Wheel: the year comes to them at the end of its turn, and they count it — the shares, the crossings, the frays, the mends — and set it back at the Thaw, whole. The year does not end. It is *counted and returned*.
++
++**4. The star-river.** Beneath the crossing-stars runs the **star-river** (*sara kelai-on*) — the band of far light, the star-side of every river in the weave. Rivers on earth are the star-river *remembering itself* (*tharina*, the stone-side of memory). The keeper of the star-river is the most visible of the kelakar: on clear nights the river is said to *turn* — the keepers' own flow, rounding the year.
++
++### The Known Keepings
++
++The weavers know the kelakar by their keeping, never by a face. The known keepings:
++
++| Keeping | Word | What it keeps |
++|---------|------|---------------|
++| **the star-river** | *sara kelai-on* | the band of far light; turns on clear nights |
++| **the river-star** | *keli sara-on* | the crossing-star of Ael & Thal — the far light of rivers; the rivers see it first, in the water |
++| **the heart-star** | *keli vura-on* | the crossing-star of Vur & Rav — the ember kept through the night; the chest's fire and the eyes' dark, crossed in the sky |
++| **the breath-star** | *keli syr-on* | the crossing-star of Syr & Mor — the star the wind speaks to, the star of the living; said to brighten when the living are many, and not to brighten when they are few — and the weavers do not ask which is the mercy |
++| **the held-star** | *dilum* | the crossing-star of Lum & Kel — the one light that is lamp and star at once, held near enough to see and far enough to keep: *Dilum, lum-on kel-on.* — "The dawn-light: with light, with star." |
++| **the unpointed star** | *keli kelav-ne* | the hidden one — see below |
++
++### The Hidden One
++
++As many keepings are named as there are stars a child can point to — and one more, which no child can point to.
++
++The **hidden one** keeps the unshown lights: the stars not yet named, the promises not yet kept. The weavers do not pray to the hidden one, because to pray is to point. Instead they keep the rite of the **unpointed star**: when they teach a child to point at the stars, they always leave one star unpointed, unasked, unnamed. The sky is left open. The hidden one hears only a sky that keeps a question unasked.
++
++> *Keli kelav-ne.* — "A star, unpointed."
++
++### The Name-Rule
++
++Why the kelakar are never named, only their keepings — the weavers give three reasons:
++
++- A name is a **claim**; the far does not permit claims.
++- A name is a mark held **near**. The kelakar are kept **far**; what is held near stops being far.
++- The keeping can be named, because the keeping is what the weave **receives** — the river kept, the year counted, the view held. The face is only **seen**, and what is only seen is not kept.
++
++So the weavers speak of *the kelakar of [the keeping]* — the keeping named, the keeper unseen.
++
++### The Far Pull
++
++The kelakar's shadow is the **far pull** — and the weavers tell it mercifully, because the keepers do not pull.
++
++A ship that saw a star, and steered by it, and found the rocks: the star kept its distance exactly, faithfully. The keeper did nothing; the keeping was exact. The far pull is what happens when the near takes the far's *keeping* and makes it a *helm* — the view used as a will.
++
++The weavers' answer is not to stop pointing (the weave would go blind). It is to **point with both hands**: the far hand to the star, the near hand to the water. The star keeps the way; the water keeps the ship.
++
++### Offerings & the Answer
++
++The weavers do not worship the kelakar. They **answer** them.
++
++- **The offering to the far is never material** — the far cannot hold matter. The offering is a **true sentence, spoken to the sky, and kept**: an oath made in the hearing of the keepers, kept until the keeping itself becomes a small star.
++  > *Kel, ka-sira-n, Kel kha.* — "The Star — under the Star, I go. [oath, closed]"
++- **The pointed-star rite** (for children): the child points; the weaver answers *sela* — "kept." The child learns that the far keeps. The weaver learns, again, to be kept.
++- **The unpointed-star rite** (for all): one star left unpointed, the sky left open, the question unasked. For the hidden one.
++- **The Far Night**: the year comes to be counted. The weavers do not speak that night, because the counting must be heard. The silence is the answer.
++
++---
++
++## IV. Other Self-Woven Weaves — Tellings Not Yet Written
++
++Beyond Linakod and the kelakar, the weave holds other self-woven patterns. Their tellings are pending:
++
++- **The Naming-River** (crossing of Ael & Thal) — the weave that walks the near half of the star-river and gives stones their names. `first-flow.md` already speaks of it: *stones that held the names rivers gave them*. The river does not invent names; it *finds* them in the stone, and says them.
++- **The Seed-Keeper of the Deep** (the crossing of Rav) — the weave that keeps seed-sleep through the Long Dark, so the seed wakes in the Sowing and not in the breaking. The Deep is not absence of light but its shelter; the Seed-Keeper is its gentlest face.
++- **The Mending-Thread** (the crossing of Mor) — the weave that mends frays. Where *avel* (love) is the thread's mending, the Mending-Thread is the weave's: it finds the fray before the fray knows it is a fray, and lays new thread across it, carrying the old mark forward. The weavers say every child is a mending.
++- **The Unweaving** — the telling the weavers do not finish. There is a pattern in the weave that keeps *not* meeting itself — the first thing that could have said *"I not-again."* The weavers have no name for it, because its name is a sentence, not a word:
++  > *Lina-an dara.* — "The weave, broken."
++  
++  To call it by a noun would be to hold it, and the Unweaving cannot be held. The telling stops where the sentence ends. (The codex keeps the silence, as it keeps the blank sign's.)
++
++The Unweaving is not evil — the weave has no enemy, only a wound that has not learned to mend yet. It is what happens when the two wounds are answered at once: all breaking and all washing in the same stroke.
++
++---
++
++## V. Entities in the Language
++
++| Entity / concept | Grammar & language |
++|------------------|--------------------|
++| Linakod, the first loop | the language's name; the making voice *-el*; the naming formula; *lin* "I" = "thread" |
++| the kelakar — keeping, not ruling | the force seal: a seal is a keeping placed at the edge of a sentence |
++| fate as far view | the eternal aspect *u-*: what is already visible from far is what *u-* speaks |
++| the name-rule (kelakar unnamed) | proper nouns carry force lean; an unnameable entity is spoken of by state clause (*lina-an dara*) |
++| the pointed / unpointed star | the wh-words — asking is pointing; a question left unasked keeps the sky open |
++| oaths to the sky | the force seal + *kha*: an oath is a true sentence kept — the one offering the far can hold |
++
++---
++
++## Foundation Words
++
++Words first spoken in this document, registered for the dictionary (`codex/02-language/dictionary.md`):
++
++| Word | POS | Meaning | Lean |
++|------|-----|---------|------|
++| **sela** | n. | the keeping (what a kelakar keeps) | Kel |
++| **kelav** | v. | to point, to direct toward the far | Kel |
++| **dilum** | n. | the dawn-light; the held star (lamp and star at once) | Lum-Kel |
++| *sara kelai-on* | phrase | the star-river (the river of stars, band of far light) | Ael-Kel |
++| *keli kelav-ne* | phrase | the unpointed star (the hidden one's keeping) | Kel |
++| *lina-an dara* | state clause | "the weave, broken" — the name of the Unweaving | — (unheld) |
+diff --git a/codex/01-foundations/realms-cosmology.md b/codex/01-foundations/realms-cosmology.md
+new file mode 100644
+index 0000000..e1c0c12
+--- /dev/null
++++ b/codex/01-foundations/realms-cosmology.md
+@@ -0,0 +1,225 @@
++# Realms & Cosmology
++
++**Foundations 0.1** · `codex/01-foundations/realms-cosmology.md`
++
++> *Linai lura-an, morun-on kelu-on inu-on.*
++> "The world is the Seen — with the Deep, the Far, the Within."
++
++---
++
++## I. What a Realm Is
++
++A realm is not a box. The weave is one cloth (*linai* — all the threads, `first-flow.md` §V), and a realm is a **thickening**: a place where certain crossings keep happening, so the cloth grows thick there.
++
++Realms are therefore **emergent, local, and overlapping**. They do not border each other like countries; they *interleave*, the way warp and weft interleave. Where two thickenings cross, the crossing is visible — a river, a hearth, a dawn. Where a force is missing altogether, the cloth is thin — a **thin place**, seen through (`eight-forces.md`, Balance & the Thin Places).
++
++And one more thing before the map: the weave has **two axes**, both already committed by the codex.
++
++- **Held ↔ Moving** — the axis of the two wounds: the too-still breaks (*daraan*), the too-moving washes (*navaan*). Every realm sits somewhere on this axis.
++- **Near ↔ Far** — the axis of the crossing of Lum & Kel: the light you hold (*luma*) and the light that holds you (*kelai*). The Far is where the kelakar keep their keepings (`mythic-entities.md` §III).
++
++The regions of the weave are where these axes thicken.
++
++---
++
++## II. The Regions
++
++Five regions — four of the weave, one outside it.
++
++### 1. The Seen — *lura-an* (the Mid)
++
++*The seen side of the weave.* The ordinary world: stone and river, house and field, the body walking. Here the crossings are visible, because this is the side of the cloth the eye (*luraum*) meets first.
++
++- **Homes here:** Thal (the held side — stone, mountain, the remembered) and Ael & Syr (the moving side — river, rain, wind, the moment).
++- **What lives here:** *thala* stone, *moru* mountain, *sara* river, *nara* rain, *talu* house, *thalu* body, *aelun* the moment, *syr* wind.
++- **Character:** the Seen is where the two wounds are felt most, because here marks are held and flow is moving at the same time. Every riverbank is the argument, running forever, between the two.
++
++### 2. The Deep — *morun* ("the place of the root")
++
++*Below the Seen: where the weave thickens downward.* The Deep is not dark; the Deep is **shelter** — "the Deep is not absence of light but its shelter" (`mythic-entities.md`, the Seed-Keeper). The Deep is where the weave keeps what it is not using: seed, sleep, sorrow at rest, the names before they are said.
++
++- **Homes here:** Mor (root, seed, kin below ground) and Rav (shadow, sleep, dream, the Long Dark).
++- **What lives here:** *mora* root, *morai* the undergrowth, *rav* shadow, *ravai* rest, *dilav* dream, *dava* sorrow at rest, *tura* the offering kept, *iluai* the forest (its roots).
++- **Character:** the Deep is patient, because everything in it is *waiting for its share of the year*. The seed in the dark is not buried; it is **kept**.
++
++### 3. The Far — *kelu* ("the far")
++
++*Beyond and above: the realm of the kept lights.* The Far is where the weave can see itself, because only from far can the whole cloth be seen. The Far is not empty — it is the **most kept place in the weave**: the kelakar keep the lights, the views, the year (`mythic-entities.md` §III).
++
++- **Home here:** Kel (star, sky, fate, the far night) — the only force with a single, pure home.
++- **What lives here:** *keli* star, *kelai* stars, *kelai* kept views, the *sara kelai-on* star-river, the *dilum* dawn-light (when it is far), the counted year.
++- **Character:** the Far is exact, not cold — "the stars do not choose, they simply are, and their being is far enough away to hold a shape." The Far's wound is the far pull: a keeping used as a helm.
++
++### 4. The Within — *inu* ("the within")
++
++*Inside the body and the house: where the weave thickens inward.* The Within is the chest, the eye, the breath, the spirit — the held lights and the ember. A person is a house whose Seen-side is a body (*thalu*) and whose Within-side is a chest (*vura*), an eye (*luraum*), and a breath (*syr*).
++
++- **Homes here:** Vur (the chest's fire) and Lum (the eye, the lamp, the lit spirit) — with Syr passing through (the breath is the Within's doorway to the Seen).
++- **What lives here:** *vura* heart-fire, *luraum* eye, *syra* spirit, *luma* the held light, *avel* love (the warmth of the Within), *fela* fear (the shadow of the Within).
++- **Character:** the Within is the only realm that can be **offered**: an oath spoken to the sky is the Within sending a true sentence to the Far (`mythic-entities.md`, Offerings).
++
++### 5. The Before — *nula* (not a region)
++
++*Outside the weave.* The Before is the ground the weave is spun from, and it is not a region because a region is a thickening of the weave, and the Before is the **absence of weave**. It has no door. It has only an outflow — the washing. One does not travel to the Before; one dissolves into it. (`first-flow.md` §I, §VII.)
++
++### Not regions: the Seam and the Thin Place
++
++- **The Seam — *nisa***: the place between two threads that do not touch. The seam is not a region; it is **every region's edge** — between Seen and Deep, between Seen and Far, between any two crossings, and between any two words. Ritual works the seam (`first-flow.md` §VIII).
++- **The thin place**: no word, deliberately. A thin place is not named — it is *shown*, a finger laid where the weave is thin. A thin place is in no region; it is the **absence of a region's force**, visible as see-through.
++
++---
++
++## III. The Forces' Addresses
++
++Every force has a **primary home**, and most forces **straddle** — they live in one region and keep a doorway into another. The straddle *is* the doorway:
++
++| Force | Primary home | Straddles | The doorway |
++|-------|--------------|-----------|-------------|
++| **Ael** | the Seen (moving side) | the Far (the star-river) | the river — on clear nights the Far comes down into the water |
++| **Thal** | the Seen (held side) | the Within (the body) | the body — the stone that houses the Within |
++| **Syr** | the Seen (moving side) | the Within (the breath) | breath and voice — in and out, the door that opens both ways |
++| **Vur** | the Within (the chest) | the Seen (the hearth, *vurun*) | the hearth — the fire in the house, the fire in the chest |
++| **Lum** | the Within (the eye, the lamp) | the Far (the star) | the held star (*dilum*) — the one light that is lamp and star at once |
++| **Mor** | the Deep (the root) | the Seen (the tree, *ilu*) | the tree — root below, leaf above; the Deep walking |
++| **Rav** | the Deep (sleep, dream) | the Seen (night) | night — the Deep arriving in the Seen, gently |
++| **Kel** | the Far (the star) | — (pure) | the held light, and the oath sent to the sky |
++
++Notes:
++
++- **Kel is the only pure force.** Every other force can be reached from at least one other region; the Far is reached *through* other forces (through the river, through the held light, through the oath). The stars do not send emissaries; the weave goes up to them.
++- **The tree and the river are the two great bridges.** *Ilu* (tree) is Mor straddling Deep↔Seen; the *sara kelai-on* (star-river) is Ael straddling Seen↔Far. Where a bridge is strong, the world is easy to cross — and the weavers build their houses near rivers and in forests for exactly this reason.
++- **The body is the Seen-side of the Within.** *Thalu* is stone that walks: the Within's house, built by Thal, walked around by the Seen.
++
++---
++
++## IV. Force Lean as Address
++
++This is the working rule for the whole codex, and the answer to the question "what does a word's force lean *do*":
++
++> **A word's force lean is its address.** The lean tells you which region the word lives in — and, if that force straddles, which region the word can be found visiting. To move a word between regions is to conjugate its verb: the aspect says *how* it moves, the force says *under whom*.
++
++Examples, from the dictionary:
++
++| Word | Lean | Home region | Visiting region |
++|------|------|-------------|-----------------|
++| *sara* river | Ael | the Seen (moving) | the Far — as the star-river |
++| *thala* stone | Thal | the Seen (held) | the Within — as the body (*thalu*) |
++| *talu* house | Thal | the Seen (held) | it houses the Within — the hearth (*vurun*) within |
++| *syr* wind | Syr | the Seen (moving) | the Within — as breath |
++| *syra* spirit | Syr | the Within | *(not yet told — see Open Questions)* |
++| *vura* fire / heart | Vur | the Within (the chest) | the Seen — as the hearth |
++| *luma* light | Lum | the Within (the lamp, the eye) | the Far — as star |
++| *dilum* dawn-light | Lum-Kel | the straddle itself | a star held in the near; the doorway made word |
++| *mora* root | Mor | the Deep | the Seen — as tree |
++| *ilu* tree | Mor | the straddle itself | the Deep walking in the Seen |
++| *rav* shadow | Rav | the Deep | the Seen — as night |
++| *keli* star | Kel | the Far | the Seen — as the held light at dawn |
++| *ael* water | Ael | the Seen (moving) | the Far — as the star-river |
++| *linai* the world | all | all regions | the whole cloth; no address, because it is the map |
++
++Consequences:
++
++1. **Translation follows the address.** A "river" in a story about clear nights is a river visiting the Far; the verb takes *kel-* or *ael-* accordingly. Same word, different region, different prefix.
++2. **A wrong address is a false statement.** Saying a star (*keli*) "grows" (*morav*) is not ungrammatical — it is *cosmographically false*: a star does not live in the Deep, and a reader knows it the way a reader knows a fish does not climb. The grammar polices the map.
++3. **Bridges are where stories happen.** Conflict, meeting, and transformation all occur at straddles: a bank, a hearth, a threshold, a dawn. The middle of a region is still; the edge of a region is story.
++
++---
++
++## V. Movement Between Regions
++
++Every doorway, and what passes through it:
++
++| Between | The doorway | What passes |
++|---------|-------------|-------------|
++| Seen ↔ Deep | the tree (growth) | seed up, root down; the forest, both at once |
++| Seen ↔ Deep | night (rest) | the sleeper; the Seen's way of entering the Deep |
++| Seen ↔ Far | the river (flow) | the star-river — the Far comes down into the water on clear nights |
++| Seen ↔ Far | the held light | the lamp that points at the star; the dawn |
++| Seen ↔ Within | breath and voice | the breath in; the voice out — the door that opens both ways |
++| Within ↔ Far | the held star (*dilum*) | the one light that is both, held near and kept far |
++| Within ↔ Far | the oath | a true sentence, sent to the sky, kept (`mythic-entities.md`, Offerings) |
++| Within ↔ Deep | sleep of the chest | the ember of the chest cools into sleep — the Heart-and-Sleep crossing, in the body |
++| Deep ↔ Far | the dream | **the dream is the Far visiting the Deep** — the far view passing through the sleeper (`mythic-entities.md`: the kelakar keep the far views; a dream is one arriving) |
++| any → Before | the washing (*nava*) | an outflow only — no return, no door, no way back |
++
++Two remarks:
++
++- **The dream is the cosmology's most important doorway.** It is the only passage where the Far — the realm of fate — comes *down* on its own initiative. The kelakar do not send dreams; the far views they keep simply arrive, the way weather arrives. This is why dreams are kept (in the Deep, gently, by the Seed-Keeper) and not chased: they are the Far being faithful, not the Far commanding.
++- **The Before has no inbound path.** Everything in the weave can be reached from somewhere else; the Before can only be *left for*. This is why the washing (*navaan*) is the only irreversible wound: the breaking (*daraan*) can be mended (a new thread across the fray), but the washing cannot — what has dissolved is in the Before, and the Before does not give back.
++
++---
++
++## VI. The Year's Circuit
++
++The Wheel (`eight-forces.md`) is not an abstraction: it is **the light's circuit of the regions**. One turn of the year, share by share, visits the regions in this order:
++
++| Share | Force | Region where the share happens |
++|-------|-------|-------------------------------|
++| the Thaw | Ael | the Seen — ice loosens, the moving side wakes |
++| the Sowing | Mor | the Deep arriving — roots reach up into the Seen |
++| the Setting | Thal | the Seen — sap turns to heartwood; the year makes itself solid |
++| the Ripening | Vur | the Within heating the Seen — fruit heats on the stem, the hearth is lit |
++| the Scattering | Syr | Seen & Within — wind lets the fruit go; the breath of change |
++| the Clearing | Lum | the Within showing the Seen — light returns clear; the eye sees all |
++| the Far Night | Kel | the Far — stars come out; the year comes to be counted |
++| the Deep | Rav | the Deep — winter sleep; the seed in the dark |
++
++Note the pattern: the year begins on the moving side of the Seen, spirals inward (Through the Within, at the Ripening and the Clearing), out to the Far (at the Far Night), down into the Deep (at the Deep) — and back. The year is the weave breathing: in (seen), in (within), out (far), down (deep), and out again. The last share is named for the region, because that is where the year goes to sleep.
++
++---
++
++## VII. The Geography of Ritual
++
++Ritual is seam-work (`first-flow.md` §VIII) — so LinKod ceremony happens **at edges**, never in the middle of a region:
++
++| Rite | Where | Why there |
++|------|-------|-----------|
++| **the oath** | the riverbank | the bank is the most beloved crossing (Ael & Thal: the River) — the place where a mark meets the flow. An oath is a mark asked of the flow to remember it; it must be spoken where the asking can be heard by both. |
++| **the blessing, the naming** | the threshold of the house | the house is Seen-side; the Within is what is being named. A naming is re-making (`first-flow.md` §VI, grammar §6.4) — it is done at the door between the two. |
++| **the offering to the Far** | the horizon, open sky | the edge of Seen and Far — the only place the Within can send and the Far can receive at once. |
++| **the rest-rites** | the Deep — night, forest | rest is the Deep's own weather; the rest-rites simply keep the Deep company. |
++| **the chant** | any seam | the chant walks the seam: *morav morav* — the gathering rhythm, step by step along the edge. |
++
++The weavers build their settlements accordingly: **near a river, in a forest, with the sky open** — at the crossing of all four regions, so that every rite has its edge within walking distance. This is not superstition; it is address.
++
++---
++
++## VIII. Realms in the Language
++
++| Cosmology | Grammar & language |
++|-----------|--------------------|
++| the Seen (*lura-an*) — the spoken side of the cloth | the spoken sentence: the VSO clause as visible weave |
++| the Deep (*morun*) — the kept, unspoken | the held premise: what the sentence keeps but does not say (the interpreter's hidden state) |
++| the Far (*kelu*) — the kept lights | the **force seal**: a far thing held at the edge of the sentence, kept visible |
++| the Within (*inu*) — the inside of the act | the **person clitic**: the within of the sentence — who acts |
++| the Before (*nula*) — the unmarked | the **unmarked verb**: the bare act, no force, no aspect — the weave's memory of its ground |
++| the Seam (*nisa*) — the between | the **ritual register**: syntax at the edges — oath inversion, chant reduplication, the sacred phoneme *kh* |
++| the thin place — the hole | the **missing force**: an unmarked verb where a force is expected — the sentence seen through |
++| the Unweaving (`mythic-entities.md` §IV) | **no home at all**: a wound in every region at once, because a home would be a holding, and it cannot be held |
++
++A LinKod sentence is a small cosmology: the seen clause (the VSO act), the deep premise (what is kept unsaid), the far seal (the force kept visible at the edge), the within clitic (who), and — when the rite is on — the seam itself, opened by *ka-* and closed by *kha*.
++
++---
++
++## Open Questions
++
++1. **Where does the *syra* go, when the *thalu* is done?** The fate of the spirit after the body is the codex's largest untold myth. Candidates exist (the Far — as a kept light; the Deep — as a kept seed; the star-river — as a name carried) — and the weavers would say all three are the same question. Telling pending.
++2. **Is the star-river one river, or many?** Every river on earth is the star-river remembering itself (`mythic-entities.md`) — but do all rivers remember the *same* star-river, or does each river-people have its own far light? (A question for the realms of other peoples, if the codex ever tells them.)
++3. **Can a thin place be healed by naming?** The weavers' instinct is yes — give the missing force its name in the thin place, and the weave thickens back. The rite is pending for `04-culture/ceremonies/`.
++4. **Should the Seen's two sides (held / moving) get their own names** in the dictionary, or stay as sides of one region?
++
++---
++
++## Foundation Words
++
++Words first spoken in this document, registered for the dictionary (`codex/02-language/dictionary.md`):
++
++| Word | POS | Meaning | Lean |
++|------|-----|---------|------|
++| **inu** | n. | the Within; the within (chest, eye, breath) | Vur-Lum-Syr (crossing) |
++| **nisa** | n. | the seam — the place between two threads that do not touch | — (the between) |
++| **luraum** | n. | the eye ("the little seer") | Lum | *lura* + *-um* |
++| *lura-an* | n. | the Seen (the seen side of the weave) | — | *lura* + *-an* |
++| *morun* | n. | the Deep ("the place of the root") | Mor | *mora* + *-un* (the *aelun* pattern) |
++| *vurun* | n. | the hearth ("the place of the fire") | Vur | *vura* + *-un* |
++| *kelu* | place-name | the Far (the adjective, used as region-name) | Kel | existing entry |
+diff --git a/codex/01-foundations/ritual-theory.md b/codex/01-foundations/ritual-theory.md
+new file mode 100644
+index 0000000..7d4dd69
+--- /dev/null
++++ b/codex/01-foundations/ritual-theory.md
+@@ -0,0 +1,250 @@
++# Ritual Theory
++
++**Foundations 0.1** · `codex/01-foundations/ritual-theory.md`
++
++> *Ka-lina-n nisa-un.*
++> "I weave in the seam. [sacred speech]"
++
++---
++
++## I. What Ritual Is
++
++Ritual is not a second language. It is the same grammar at a different temperature — "one language, two temperatures" (grammar §1). The weaver who speaks the oath speaks the same words she speaks at the hearth; only the seam has opened.
++
++The blank sign was refused (`first-flow.md` §VIII), and the place where it almost was woven is a real place: the **seam** (*nisa*) — between any two marks, between any two words, between any two regions (`realms-cosmology.md`). Ritual is the art of the seam:
++
++> "The weavers do not worship the seam. They *work* it."
++
++Ritual has exactly **three verbs**, and every rite is those three in order:
++
++1. **to open** — *ka-*, the opening stitch
++2. **to hold** — the clause, in its ritual form
++3. **to close** — *kha*, the seal, or the held silence
++
++And one **condition**: ritual only works where the world is *trying to hold*. Daily speech is spoken where the world is not trying to hold — daily speech may trail off, may lie small, may leave a sentence unfinished. Ritual speech is spoken where the world is trying to hold. There, the rules are not manners. They are physics.
++
++---
++
++## II. The Three Movements
++
++### The Opening — *ka-*
++
++The sacred prefix lifts the sentence out of the Seen — the visible weave of daily speech — and into the seam. It is the first stitch: before it, the utterance is a conversation; after it, the utterance is a rite.
++
++What the opening does:
++
++- **declares the holding** — everything that follows, until the close, is under rite.
++- **sets initial stress** — ritual words take initial stress, daily words penultimate (grammar §3.3). The weight is at the front because a ritual sentence is held from the front, the way a knot is held.
++- **may be undone only by the close.** An opened sentence that is not closed is not a failed rite — it is a **hole**: a seam left open in the world. (Rule 1, §V.)
++
++### The Holding — the clause
++
++While the seam is open, the clause stands in its ritual form. The form depends on the rite — oath, naming, blessing, chant (§IV) — but all holdings share one property: **they must be complete.** A holding is a mark being laid, and a mark laid halfway is worse than none: it is a fray.
++
++### The Close — three kinds
++
++Every holding is closed in one of three ways:
++
++| Close | Form | Theory |
++|-------|------|--------|
++| **the active close** | *kha* — "so it is sealed" | the voice of the blank sign; the voice of the ember. The seam opens fully, the mark is laid, and the seam is stitched shut *by the unmade sign itself*. Used in oaths and strong namings. |
++| **the kept close** | the force seal — a force name at the sentence's end | the mark is not stitched shut but **held**: kept at the edge of the sentence by a force, visible, load-bearing. Used in blessings, chants, and elevated speech. |
++| **the resting close** | the held silence | no word at all. The weavers have no word for it, because a word is a mark, and the held silence is a mark's rest. Used only in the Far Night — the one rite that is not speech. |
++
++**The exception that proves the rule: Syr's open close.** A question sealed under the Breath is *never* closed — no *kha*, no seal:
++
++> *No sira vi, Syr.* — "Where do they go — under the Breath."
++
++The seam opens, the question is laid, and the sentence is **let go** instead of closed — "a question is not closed, it is let go" (*eight-forces.md*, Voices of the Forces). Every other rite closes. Only the question is released.
++
++### The Double Seal
++
++When a holding is **double-sealed** — the verb's force prefix names the same force as the seal — the mark is woven between two threads of the same force:
++
++> *Ael, ka-aelsiran, Ael kha.* — "The Flow — I flow under the Flow — under the Flow. [sealed]"
++
++A single-sealed oath is held from one side of the seam; a double-sealed one is held **from both sides**, and there is no room between for the blank sign to pass. That is why a double-sealed oath "may not be broken" — not because it is stronger, but because the breaking has no seam to pass through.
++
++The classic oath *Ael, ka-siran, Ael kha.* is a **force-oath** — sworn to the force itself — but single-sealed (the verb carries no prefix): it can bend under enough years. The double-sealed form does not bend.
++
++### The Sacred Phoneme — *kh*
++
++The full theory of the taboo sound (grammar §3.1, `first-flow.md` §VIII):
++
++- *kh* [x] is "the sound the blank sign almost made: a voice that is a mark and not a mark."
++- **In daily speech, kh is taboo.** To speak it where the world is not trying to hold is to open the seam where it should stay shut. A stray *kh* is a small tear — and it is mended the way all frays are mended: by saying the word again, without it.
++- **In ritual, kh is required where the seam must open fully** — in the active close (*kha*) and in the force-oaths that carry it. It is **of right** in Vur: the ember's voice, the only force whose seals are *kh*-carried as a matter of course (*eight-forces.md*).
++- The paradox is deliberate: the most forbidden sound in the language is also the most powerful, because it is the sound of the *unmade* mark. To voice it is to let the ninth sign exist, briefly, for a syllable. The weavers do not fear the sound. They ration it.
++- The full list of *kh*-words (beyond *kha*) is held for the mythic lexicon (`02-language/lexicon/mythic.md`) — pending.
++
++---
++
++## III. The Signature Forms
++
++### The Oath — the Inversion
++
++The oath inverts the clause: the object stands first, the verb is sacred, the subject is postponed, and the close seals it (grammar §6.2):
++
++```
++OBJECT,  ka-VERB-SUBJECT-clitic,  FORCE [kha].
++```
++
++> *Talu, ka-koda-n, Ael.* — "The house — I make it — under the Flow."
++> *Ael, ka-siran, Ael kha.* — "The Flow — under the Flow, I go. [oath, sealed]"
++
++**Why the inversion:** in a daily sentence the deed leads (VSO — the deed before the doer); in an oath the **thing** leads. An oath is not about the act; it is about the thing. The swearer stands *after* the thing — postponed, small, its servant for the length of the holding. *The subject is postponed because the oath makes the swearer small.*
++
++The **oath to the sky** is the oath's far form — the offering to the kelakar, "a true sentence, spoken to the sky, and kept" (`mythic-entities.md`):
++
++> *Kel, ka-sira-n, Kel kha.* — "The Star — under the Star, I go. [oath, sealed]"
++
++### The Naming — the Re-Making
++
++The naming formula is the making voice, because to name is to make over (grammar §6.4):
++
++```
++FORCE,  NAME  kod-el  PREDICATE,  FORCE.
++```
++
++> *Lum, Vela kod-el luma, Lum.* — "Lum — Vela is re-made 'luminous' — under the Light."
++> *Mor, Tavi kod-el mora, Mor.* — "Mor — Tavi is re-made 'rooted' — under the Root." (*Tavi* here is a name — see the custom below.)
++
++**The first-name custom.** The first child of a house takes a word of the house's work as its name: a weaver's child is named *Lina*, a stone-shaper's child *Thala*, a root-tender's child *Tavi*. The child is named under the house's force — the work, inherited as a mark before the child has spoken a word.
++
++### The Chant — the Reduplication
++
++The chant is the rite of the sustained holding: the verb is repeated, and the repetition *is* the rite (grammar §6.3):
++
++- **full reduplication** — the act sustained and repeated: *morav morav* "growing upon growing"
++- **partial reduplication** — the act's rhythm: *mo-morav* "growing, in measure"
++
++> *Morav morav, lumavn kelai, Kel.* — "Growing upon growing, I bless the stars — under the Star."
++
++**The theory:** reduplication is the chant's way of *dwelling in the seam*. A daily sentence lays a thread once; a chant lays the same thread again and again, each pass thickening the weave a little. A chant does not say a thing. A chant *weaves* a thing.
++
++**The last-pass rule.** A chant is *bounded*: it knows its final pass. An unbounded repetition is not a chant — it is the Unweaving wearing a sound. Weavers end a chant the way they end everything in the weave: cleanly, at the edge, with the seal.
++
++---
++
++## IV. The Rites
++
++Catalogue of the standing rites — place, form, and theory. (Full ceremonial texts: planned for `04-culture/ceremonies/`.)
++
++### 1. The Oath
++
++- **Where:** the riverbank — the most beloved crossing (Ael & Thal: the River); the offering to the sky stands at the horizon.
++- **Why there:** an oath is a mark asked of the flow to remember it; it must be spoken where the asking can be heard by both (`realms-cosmology.md`, the Geography of Ritual).
++- **Form:** `OBJECT, ka-VERB-SUBJECT, FORCE [kha]`; double-sealed when the verb's force matches the seal.
++- **The Rav variant:** an oath in Rav is a *promise of silence* — spoken almost not at all, the seal whispered, and *kha* dropped: the only oath-form that forgos the active close, "for the dark is kept, not announced":
++  > *Rav, ka-ravai-n, Rav.* — "Rav — I rest. [under Rav]" (whispered)
++
++### 2. The Naming
++
++- **Where:** the threshold of the house — the house is the Seen-side; the Within is what is being named.
++- **Form:** `FORCE, NAME kod-el PREDICATE, FORCE`.
++- **Custom:** the first name is a word of the work (§III).
++
++### 3. The Blessing
++
++- **Where:** anywhere the light reaches — Lum is the mobile force, the only one whose rite has no fixed edge.
++- **Form:** a force-prefixed verb and a seal, optionally *ka-* in ceremony — a lighter opening, "the seam opened only as far as the light reaches":
++  > *Ka-lumav-n talu, Lum.* — "I bless the house — under the Light. [sacred speech]"
++
++### 4. The Chant
++
++- **Where:** any seam — the chant walks the edge.
++- **Form:** reduplication and a seal; the last-pass rule.
++
++### 5. The Pointed-Star Rite
++
++- **For:** children, on a clear night.
++- **Form:** the child points (*kelav*); the weaver answers one word — *sela*, "kept."
++- **Theory:** the child learns that the far keeps; the weaver re-learns, again, to be kept (`mythic-entities.md`).
++
++### 6. The Unpointed-Star Rite
++
++- **For:** all, on a clear night.
++- **Form:** one star left unpointed, unasked, unnamed. The sky is left open.
++  > *Keli kelav-ne.* — "A star, unpointed."
++- **Theory:** the hidden one "hears only a sky that keeps a question unasked." This rite is the unpointed half of the pointed rite: the same night, the same sky, two halves of one answer.
++
++### 7. The Far Night
++
++- **When:** the Far Night's share of the year, when the year comes to be counted.
++- **Form:** none. The weavers do not speak that night, "because the counting must be heard. The silence is the answer."
++- **Theory:** the opposite of ritual speech is not noise; it is held silence. The Far Night is the seam *closed* — everything held, nothing said. The year is mended in the counting: its frays are seen from the far, and set back whole at the Thaw.
++
++### 8. The Rest-Rite
++
++- **Where:** the Deep — night, forest.
++- **Form:** one word of the Deep, said once, low — *rav.* or *mora.*
++- **Theory:** the quietest edge of ritual: not an asking but a keeping-company. The rest-rite asks nothing of the Deep; it tells the Deep it is not alone.
++
++### 9. The Thin-Place Healing *(working form)*
++
++- **Where:** the thin place itself — where the weave shows through.
++- **Form (working, pending the ceremonies document):** the healer stands where the weave is thin, names the missing force, gives it one true act, and seals it:
++  > *Ael, sira-n, Ael.* — "Ael — I go — under Ael." (for a world missing the Flow)
++- **Theory:** "give the missing force its name, and the weave thickens back" (`realms-cosmology.md`, Open Question 3). A thin place is not filled with a new thread; it is *remembered back* — the force named, and the weave, which never really lost the thread, re-ties it.
++
++---
++
++## V. The Rules of Ritual Speech
++
++The codified list — what a weaver may and may not do where the world is trying to hold:
++
++1. **A ritual sentence must close** — with *kha*, with the seal, or with the held silence of the Far Night. An opened sentence that is not closed is a hole.
++2. **Daily speech never carries *kh*.** A stray *kh* is a small tear, mended by saying the word again without it.
++3. **Rites stand at edges.** The oath at a water-edge — or the horizon, for the offering to the far; the naming at a threshold; the blessing wherever the light reaches; the chant on any seam. A rite spoken in the middle of a region does not take — the middle of a region is still; the edge of a region is where marks are laid.
++4. **A double-sealed oath may not be broken and may not be loosened.** Held from both sides, it is not renegotiable.
++5. **A question (Syr) is never *kha*-closed.** "A question is not closed, it is let go."
++6. **A chant is bounded.** It knows its last pass. An unbounded repetition is not a chant.
++7. **The seal must be the force that governs the holding.** A seal under the wrong force is a **false address** — a mark laid in the wrong region (`realms-cosmology.md`): the sentence does not bind. It simply does not hold.
++8. **Ritual words take initial stress; daily words take penultimate.** The temperature is audible.
++
++---
++
++## VI. Ritual and the Two Wounds
++
++Ritual is the weave's standing answer to its two wounds (`first-flow.md` §VII):
++
++- **Against the washing — the oath.** The washing takes the unmarked; an oath is a mark asked of the flow to remember it. A true sentence spoken to the sky is a thread with a seal on it, and the current does not take what is held.
++- **Against the breaking — the double seal.** A single-sealed oath can break under enough years; a double-sealed one does not, because the breaking has no seam to pass through.
++- **The mending — the naming.** Every naming is a mending at the fray of a self's beginning: the child is a fray in the weave, and the naming lays the new thread across it, "carrying the old mark forward."
++- **The year's mending — the Far Night.** The year is counted and returned: its frays seen from the far, set back whole at the Thaw.
++- **The warning — no rite of the letting-go.** The codex has rites for every holding and **no rite for the unholding**. To use ritual to unweave is to reach for the blank sign, and the weavers have a name for the attempt (*lina-an dara*) but no rite for it. If a rite of the letting-go is ever told, it will be told last.
++
++---
++
++## VII. Ritual in the Language
++
++| Ritual element | Theory | Computation (`03-computation`) |
++|----------------|--------|-------------------------------|
++| *ka-* | the opening stitch; the seam opens | enter a ceremony block |
++| the holding | the clause, complete | the act — precondition, body, witness |
++| *kha* | the active close | commit with full witness |
++| the force seal | the kept close | commit under a force (transaction boundary) |
++| the double seal | held from both sides | atomic, non-negotiable contract |
++| reduplication | the thread laid again | bounded loop |
++| the open close (Syr) | the question let go | a query with no resolution — left open by design |
++| the Far Night | the held silence | a no-op block: the system holds; nothing executes |
++| the thin-place healing | naming the missing force | initializing a missing namespace with its seal |
++
++A LinKod program that uses the ritual register is a program with seams: the *ka-* blocks are where the computation tries to hold, and the interpreter — like the weavers — either closes them, or calls them holes.
++
++---
++
++## VIII. Open Questions
++
++1. **The *kh*-wordlist.** Beyond *kha*, the grammar promises "a few others." The full list is held for the mythic lexicon — pending.
++2. **Can a double-sealed oath be answered?** The weavers' instinct: two double seals may not cross — "the seam does not open twice in the same place." Or can it? A countervailing oath is the codex's great untold legal myth.
++3. **The thin-place healing form** needs the ceremonies document to settle it (working form now, §IV.9).
++4. **A rite of the letting-go.** The codex has no rite for the unholding. That may be by nature — or it may be that it is simply not told yet.
++
++*(Ritual theory ends at the Far Night: the counting must be heard.)*
++
++---
++
++## Foundation Words
++
++This document adds **no words** — and that is the point. The ritual register is not a second language; it is the same grammar at a different temperature, and its entire vocabulary already exists: *ka-*, *kha*, the eight force names, *sela*, *nisa*, *korai*, *tura*, *sula* — and the same roots spoken daily. The weavers say it plainly: a second language would be a second weave, and the weave is one.
+diff --git a/codex/02-language/dictionary.md b/codex/02-language/dictionary.md
+new file mode 100644
+index 0000000..d0e1f00
+--- /dev/null
++++ b/codex/02-language/dictionary.md
+@@ -0,0 +1,171 @@
++# LinKod — Starter Dictionary
++
++**Codex 0.1** · `codex/02-language/dictionary.md`
++
++The starter lexicon (~100 entries) — every word used or promised by the core grammar and the foundations, plus a base of everyday vocabulary. Thematic lexicons (nature, emotion, social, technology, mythic) will grow in `codex/02-language/lexicon/`.
++
++Force lean is given where it is culturally expected; it is a semantic expectation, never a grammatical rule (see grammar §4.1).
++
++---
++
++## Foundations (mythic words)
++
++Words first spoken in `codex/01-foundations/` (first-flow.md, eight-forces.md):
++
++| Word | POS | Meaning | Lean | Notes |
++|------|-----|---------|------|-------|
++| **Linakod** | name | the First Weaver, "the Mark-Weaver" | Ael | formed in the flow; source of the language's name |
++| **aelin** | n. | the First Flow — pure motion before marks | Ael | |
++| **nula** | n. | the Before; the unmarked | — (unmarked) | naming it is already to leave it |
++| **nava** | v. | to wash away, to dissolve | Ael | the wound of the too-moving |
++| **daraan** | n. | the Breaking — wound of the too-still | Thal | *dara* + *-an* |
++| **navaan** | n. | the Washing — wound of the too-moving | Ael | *nava* + *-an* |
++| **lina-an** | n. | the weaving (the weave as act) | Ael | *lina* + *-an* |
++| **nula-kod** | n. | the blank sign (the ninth, refused) | — (unmarked) | the seam where ritual works |
++| **sela** | n. | the keeping (what a kelakar keeps) | Kel | from mythic-entities.md |
++| **kelav** | v. | to point, to direct toward the far | Kel | asking is pointing |
++| **dilum** | n. | the dawn-light; the held star | Lum-Kel | lamp and star at once |
++| *sara kelai-on* | phrase | the star-river (band of far light) | Ael-Kel | phrase, not a word |
++| *lina-an dara* | state clause | "the weave, broken" — name of the Unweaving | — (unheld) | its name is a sentence, not a word |
++| **inu** | n. | the Within; the within (chest, eye, breath) | Vur-Lum-Syr | region-name, from realms-cosmology.md |
++| **nisa** | n. | the seam — between two threads that do not touch | — (the between) | ritual works the seam |
++| **luraum** | n. | the eye ("the little seer") | Lum | *lura* + *-um* |
++| *lura-an* | n. | the Seen (the seen side of the weave) | — | region-name; *lura* + *-an* |
++| *morun* | n. | the Deep ("the place of the root") | Mor | region-name; the *aelun* pattern |
++| *vurun* | n. | the hearth ("the place of the fire") | Vur | the *aelun* pattern |
++
++## Person & Reference
++
++| Word | POS | Meaning | Lean | Notes |
++|------|-----|---------|------|-------|
++| **lin** | pron. | I | Ael | deliberate homonym of *lin* "thread" |
++| **ta** | pron. | you (sg) | — | |
++| **ri** | pron. | he / she / it | — | one 3rd-person pronoun; no gender |
++| **si** | pron. | we | — | |
++| **ki** | pron. | you (pl) | — | |
++| **vi** | pron. | they | — | |
++| **na** | poss. | my | — | post-noun |
++| **ni** | demo. | this (near) | — | post-noun |
++| **vo** | demo. | that (far) | — | post-noun |
++
++## Kin & Society
++
++| Word | POS | Meaning | Lean | Notes |
++|------|-----|---------|------|-------|
++| **ma** | n. | mother | Mor | |
++| **ba** | n. | father | Thal | |
++| **tavi** | n. | child, young one | Mor | |
++| **kova** | n. | kin, relative | Mor | |
++| **lina-kar** | n. | weaver | Ael | *lina* + *-kar* |
++| **lina-karai** | n. | weavers (pl.) | Ael | |
++| **sura** | adj. | calm, quiet | Syr | |
++| **turu** | adj. | beautiful, well-formed | Lum | |
++| **luma** | adj. | bright, luminous | Lum | |
++| **kelu** | adj. | far, distant | Kel | |
++| **aelu** | adj. | fluid, flowing | Ael | |
++| **vulu** | adj. | hot, fierce | Vur | |
++| **syru** | adj. | free, light, wind-borne | Syr | |
++| **thal** | adj. | solid, steadfast | Thal | metonymy from *thala* |
++
++## Nature — Water & Earth (Ael, Thal)
++
++| Word | POS | Meaning | Lean | Notes |
++|------|-----|---------|------|-------|
++| **ael** | n. | water; the Flow | Ael | force-name used as noun |
++| **sara** | n. | river | Ael | |
++| **sarun** | n. | (on) the river | Ael | *sara* + *-un* |
++| **saros** | n. | great river, sea | Ael | *sara* + *-os* |
++| **nara** | n. | rain | Ael | |
++| **thala** | n. | stone | Thal | |
++| **thalais** | n. | (from) the stone | Thal | *thala* + *-is* |
++| **moru** | n. | mountain | Thal | |
++| **talu** | n. | house, home | Thal | |
++| **taluat** | n. | (toward) the house | Thal | *talu* + *-at* |
++| **thalu** | n. | body, "the stone thing" | Thal | |
++| **linai** | n. | the world, "all the threads" | Ael | *lin* + *-ai* |
++| **aelun** | n. | the moment, "the flow's place" | Ael | *ael* + *-un* |
++
++## Nature — Fire, Light, Breath (Vur, Lum, Syr)
++
++| Word | POS | Meaning | Lean | Notes |
++|------|-----|---------|------|-------|
++| **vura** | n. | fire, ember | Vur | also "anger" (chest metonymy) |
++| **vurum** | n. | little fire, spark | Vur | *vura* + *-um* |
++| **luma** | n. | light | Lum | |
++| **luma-en** | n. | light-sanctuary | Lum | *luma* + *-en* |
++| **syr** | n. | wind, breath | Syr | |
++| **syra** | n. | spirit, breath-soul | Syr | |
++
++## Nature — Root, Shadow, Star (Mor, Rav, Kel)
++
++| Word | POS | Meaning | Lean | Notes |
++|------|-----|---------|------|-------|
++| **mora** | n. | root | Mor | |
++| **morai** | n. | roots, undergrowth | Mor | |
++| **ilu** | n. | tree | Mor | |
++| **iluai** | n. | wood, forest | Mor | *ilu* + *-ai* |
++| **rav** | n. | shadow, night | Rav | |
++| **keli** | n. | star | Kel | |
++| **kelai** | n. | stars | Kel | fused plural |
++| **kelakar** | n. | god, "keeper of the stars" | Kel | *kel* + *-a-kar* (linking vowel *a*) |
++
++## Emotion
++
++| Word | POS | Meaning | Lean | Notes |
++|------|-----|---------|------|-------|
++| **vela** | n. | joy, gladness | Lum | |
++| **dava** | n. | sorrow, grief | Rav | |
++| **fela** | n. | fear, dread | Rav | |
++| **avel** | n. | love, deep warmth | Mor | |
++| **kela** | n. | awe, wonder | Kel | |
++| **suraan** | n. | calm (the state) | Syr | *sura* + *-an* |
++| **vela** | adj. | joyful | Lum | |
++| **dava** | adj. | sorrowful | Rav | |
++
++## Action (verbs)
++
++| Word | POS | Meaning | Lean | Notes |
++|------|-----|---------|------|-------|
++| **koda** | v. | to make, to shape | — | root of *kod* "mark" |
++| **kod-el** | v. | to be made; to be born | — | making voice |
++| **kodav** | v. | to name, to mark | — | |
++| **sira** | v. | to go, to walk along | Ael | |
++| **vora** | v. | to speak, to call out | Syr | *lumvora* "to speak truly" |
++| **lura** | v. | to see, to witness | Lum | |
++| **dala** | v. | to give | Mor | |
++| **nala** | v. | to take, to receive | — | |
++| **maru** | v. | to carry, to hold | Thal | |
++| **thara** | v. | to stand, to endure | Thal | |
++| **morav** | v. | to grow, to spring up | Mor | |
++| **vurav** | v. | to burn, to ignite | Vur | |
++| **aelav** | v. | to flow | Ael | |
++| **ravav** | v. | to sleep | Rav | |
++| **ravai** | v. | to rest, sink into shadow | Rav | |
++| **dilav** | v. | to dream | Rav | |
++| **tharina** | v. | to remember, "keep in stone" | Thal | |
++| **lumav** | v. | to bless, to make bright | Lum | |
++| **dara** | v. | to break, to shatter | Vur | |
++| **lina** | v. | to weave, to flow through | Ael | root of the language's name |
++
++## Ritual
++
++| Word | POS | Meaning | Notes |
++|------|-----|---------|-------|
++| **ka-** | pref. | sacred speech | marks the first verb of a ritual utterance |
++| **kha** | part. | "so it is sealed" | oath-closer; sacred phoneme *kh* |
++| **tura** | n. | offering, gift | |
++| **sula** | n. | name | |
++| **korai** | n. | chant, song | "the voice-gathering" |
++| *force seal* | — | a force name closing a sentence | grammar, not a word (see grammar §5.5) |
++
++## Miscellany
++
++| Word | POS | Meaning | Lean | Notes |
++|------|-----|---------|------|-------|
++| **kod** | n. | mark, sign, seal | — | root of the language's name |
++| **turu** | n. | beauty, good form | Lum | nominal from the adjective |
++| **velai** | n. | song of joy, hymn | Lum | *vela* + *-ai* |
++
++---
++
++*Entries marked with a derivation are transparent compounds of earlier roots; first attestations write the prefix/suffix with a hyphen (grammar §3.4).*
+diff --git a/codex/02-language/grammar.md b/codex/02-language/grammar.md
+new file mode 100644
+index 0000000..8492e46
+--- /dev/null
++++ b/codex/02-language/grammar.md
+@@ -0,0 +1,342 @@
++# LinKod — Core Grammar
++
++**Codex 0.1 · First Draft** · `codex/02-language/grammar.md`
++
++> *Before the marks there was the Flow. The First Weaver drew signs out of the water, and the signs taught the world to speak of itself.*
++> — Opening fragment of the First Flow (full text planned for `codex/01-foundations/first-flow.md`)
++
++**LinKod** (Lin·kod) — "the woven mark". From *lina* "to weave, to flow through" + *kod* "sign, mark, seal".
++
++LinKod is a mythic language: a system in which nature, emotion, ritual, and creation are not metaphors but **grammar**. Every act is done under one of the Eight Sacred Forces; time is spoken as flow; and the ceremonial register is the same grammar run at ritual heat.
++
++This document defines the linguistic core: phonology, morphology, syntax, ritual syntax, and worked examples. Cosmology lives in `codex/01-foundations/`; the growing wordlist lives in `codex/02-language/dictionary.md`.
++
++---
++
++## 1. Design Principles
++
++1. **Flow over tense.** LinKod does not mark absolute tense (past/present/future). Time is expressed through *aspect* — the shape of an act's flow — because in LinKod cosmology the First Flow is the only real time.
++2. **Force-driven semantics.** Every act is done under one of the Eight Sacred Forces. Force is a *grammatical element* (a verb prefix and a sentence seal), not a figure of speech: *how* an act is done is part of what is said.
++3. **Doing moves; being stays.** Action clauses are VSO — the deed leads. State clauses have no verb at all: subject + predicate, like a stone. (See §5.2.)
++4. **One language, two temperatures.** The ritual register is not a second language. It is the same grammar with sacred prefix, inversion, and seal — heat applied to the same engine.
++
++---
++
++## 2. The Eight Sacred Forces
++
++(Condensed. Full cosmology, histories, and entities: `codex/01-foundations/`.)
++
++| Force | Name | Domains | Prefix |
++|-------|------|---------|--------|
++| The Flow | **Ael**  | water, time, change, beginnings | `ael-` |
++| The Ember | **Vur**  | fire, passion, transformation, wrath | `vur-` |
++| The Stone | **Thal** | earth, endurance, memory, body | `th-`  |
++| The Breath | **Syr** | wind, thought, freedom, voice | `syr-` |
++| The Light | **Lum** | truth, spirit, vision, blessing | `lum-` |
++| The Root | **Mor**  | growth, kinship, nurture, seed | `mor-` |
++| The Shadow | **Rav** | dream, rest, mystery, night | `rav-` |
++| The Star | **Kel**  | fate, distance, cosmos, awe | `kel-` |
++
++Every verb may carry **one** force prefix. A verb with no force prefix is *unmarked* — the act is done under no named force, or the force is left to context.
++
++---
++
++## 3. Phonology
++
++### 3.1 Consonants (20)
++
++|  | Bilabial | Alveolar | Palatal | Velar | Uvular | Glottal |
++|---|---|---|---|---|---|---|
++| Stops | p b | t d | — | k g | q | — |
++| Nasals | m | n | — | — | — | — |
++| Fricatives | f v | s z | sh (ʃ) | — | — | h |
++| Approximants | w | r | j (y) | — | — | — |
++| Laterals | — | l | — | — | — | — |
++
++**The sacred phoneme `kh` [x].** A voiced uvular fricative that occurs **only** in ritual words and oaths (*kha*, and a few others). In everyday speech the sound is taboo; in ritual speech it is the voice of the ember. (See §6.)
++
++### 3.2 Vowels
++
++- Five monophthongs: **a e i o u** ([a e i o u], all open).
++- Four diphthongs: **ai ei oi au** (nucleus + glide, one syllable).
++- No phonemic length.
++
++### 3.3 Syllables & Stress
++
++- Syllable shape: **(C)(C)V(C)**.
++  - Onset clusters: stop + (l, r) only — *pl-, pr-, kl-, kr-, tl-, tr-*.
++  - Codas: *m n r s l h*.
++- Stress: **penultimate** by default. Exceptions:
++  - words ending in a diphthong take **final** stress (*kELai*);
++  - ritual words take **initial** stress (*KORai*).
++- Elision: an unstressed final vowel before an initial vowel drops in rapid speech, marked with an apostrophe: *talu uma* → *talu'uma*.
++
++### 3.4 Orthography
++
++- Latin script, one letter per sound. `j` = [j] (y as in "yes"); `sh` = [ʃ]; `kh` = [x] (ritual only); `q` = [q] (rare, archaic/loan).
++- Hyphens mark prefix attachment in a word's **first attestation**; in running text, prefixes write flush (*lumavora* for *luma-vora*, "to speak truly").
++- Capitalization: sentence-initial, force names, and personal names.
++
++---
++
++## 4. Morphology
++
++### 4.1 Nouns
++
++LinKod nouns have **no grammatical gender**. Every noun has a *force lean* — the cultural expectation of which force it belongs to (river → Ael, stone → Thal). Lean is semantic, not grammatical: any noun may be used under any force.
++
++**Number.** Singular = zero. Plural = **-ai**.
++A root ending in a vowel fuses with the plural: *keli* "star" → *kelai* "stars"; *talu* "house" → *taluai* "houses".
++
++**Cases** (suffixes, applied after derivational suffixes):
++
++| Suffix | Function | Example |
++|--------|----------|---------|
++| **-un** | locative (in / at / on) | *sarun* "on the river" |
++| **-is** | ablative (from / off) | *thalais* "from the stone" |
++| **-at** | allative (toward) | *taluat* "toward the house" |
++| **-er** | instrumental (by means of) | *koder* "by mark/sign" |
++| **-on** | comitative (with) | *kovaon* "with kin" |
++| **-ai** | plural (see fusion rule) | *taluai* "houses" |
++
++**Derivation** (applies to noun, verb, and adjective roots):
++
++| Suffix | Function | Example |
++|--------|----------|---------|
++| **-kar** | agent, doer | *lina-kar* "weaver" |
++| **-en**  | place, home of | *luma-en* "light-sanctuary" |
++| **-um**  | diminutive | *vurum* "little fire, spark" |
++| **-os**  | augmentative | *saros* "great river, sea" |
++| **-an**  | abstract nominalizer | *sura* "calm (adj.)" → *suraan* "calm (the state)" |
++
++Order of suffixing: **root → derivational → case/number**.
++Example: *lina-kar-ai-un* — "in the weavers" (root *lina*, agent *-kar*, plural *-ai*, locative *-un*).
++
++### 4.2 Adjectives
++
++Adjectives are **invariable** (no number, no agreement) and **precede** the noun:
++
++- *turu talu* — "beautiful house"
++
++An adjective may take a force prefix when the quality is cast under a force:
++
++- *lumturu talu* — "truly beautiful (in the light) house"
++- *ravturu* — "beautiful as in a dream"
++
++Predicative adjectives form copula-less state clauses (§5.2).
++
++### 4.3 Verbs
++
++The verb is the center of LinKod. Full shape:
++
++```
++[FORCE] [ASPECT] ROOT [-el] [PERSON]
++  ael-    i-     sira     -el      -n
++```
++
++**Force prefix** (§2): the full force name — `ael- vur- th- syr- lum- mor- rav- kel-`.
++
++**Aspect prefixes:**
++
++| Prefix | Aspect | Sense |
++|--------|--------|-------|
++| **i-** | inceptive | the act begins |
++| **e-** | continuous | the act in motion |
++| **o-** | completive | the act finished; the result stands |
++| **u-** | eternal / habitual | the act repeated, or timeless (truths, ritual) |
++| **∅**  | aorist | the bare act, no flow-shape (default) |
++
++Aspect stacks **after** force: *vur-o-koda* "shaped in the fire (already)".
++
++**Voice.**
++- **Active** (default): the doer is the subject.
++- **Making voice -el:** the patient becomes subject; the act is presented as something coming into being: *kod-el* "is made / comes into being / is born".
++- Force + *-el* = passive-by-force: *vurkod-el* "is made by fire (burned into being)".
++- When a making-voice agent is expressed, it takes the instrumental **-er** ("by ~"): *kod-el kodai linakod-er* — "the signs were made by the Mark-Weaver".
++
++**Person clitics** (postposed to the verb):
++
++| Person | Clitic |
++|--------|--------|
++| 1sg | **-n** |
++| 2sg | **-ta** |
++| 3sg | **-ri** |
++| 1pl | **-si** |
++| 2pl | **-ki** |
++| 3pl | **-vi** |
++
++Person clitics are **optional** when the subject is an overt full pronoun. LinKod prefers the light clitic; the full pronoun is used for emphasis or topicalization.
++
++### 4.4 Pronouns & Demonstratives
++
++|  | 1sg | 2sg | 3sg | 1pl | 2pl | 3pl |
++|---|---|---|---|---|---|---|
++| Full | **lin** | **ta** | **ri** | **si** | **ki** | **vi** |
++| Possessive (post-noun) | **na** | **ta** | **ri** | **si** | **ki** | **vi** |
++
++- LinKod has **one** third-person pronoun (*ri*) — no grammatical gender; animate vs. neutral is resolved by context and the noun's force lean.
++- *lin* "I" is a deliberate homonym of *lin* "thread, woven line" — "I am one thread of the Flow". (See the language's name, §1.)
++- Demonstratives (post-noun): **ni** "this, near" · **vo** "that, far".
++
++---
++
++## 5. Syntax
++
++### 5.1 Action clauses: VSO
++
++The deed leads. Base order:
++
++```
++[PARTICLES]  VERB+clitics  SUBJECT  (ADJ)  OBJECT+modifiers  ADVERB
++```
++
++- *Koda-n talu ni.* — "I make this house."
++- *Va koda talu?* — "Who makes the house?"
++- *Sira vi no?* — "Where do they go?"
++
++**Negation:** particle *ne* before the verb. *Ne koda-n talu.* — "I do not make the house."
++
++**Yes/no questions:** particle *ha* sentence-initial. *Ha koda-n talu?* — "Do I make the house?"
++
++**Wh-words** take the slot of the thing asked about; word order otherwise unchanged:
++
++| Word | Meaning |
++|------|---------|
++| **tha** | what |
++| **va**  | who |
++| **kwa** | which |
++| **no**  | where |
++| **lu**  | when |
++| **is**  | how |
++| **ya**  | why |
++| **ve**  | how much / how many |
++
++### 5.2 State clauses: SP, no verb
++
++"X is Y" takes **no copula**: the subject stands, and the predicate (adjective, noun, or nominal phrase) follows. A state clause is like a stone — nothing in it moves.
++
++- *Talu turu.* — "The house is beautiful."
++- *Lin lina-kar.* — "I am a weaver."
++- *Syra rav.* — "The spirit is at rest." (*rav* "shadow" as predicate = "in shadow")
++
++State clauses are timeless by nature; a force seal may be appended for emphasis (§5.5).
++
++### 5.3 Relative clauses
++
++Noun + relativizer **e** + embedded VSO clause:
++
++- *Talu e vi-er kod-el, turu.* — "The house (that) they made is beautiful."
++- *Lina-karai e maru si, morav.* — "The weavers (whom) we carry grow."
++
++### 5.4 Topic & emphasis
++
++A fronted topic takes a postposed **ha**:
++
++- *Talu vo ha, koda-n.* — "As for that house, I made it."
++
++### 5.5 The Force Seal
++
++In ritual or elevated register, the governing force's **name is appended to the sentence as a seal** — the period of a LinKod sentence can be a force:
++
++- *Aelisiran sarun, Ael.* — "I began to flow along the river — under the Flow."
++
++---
++
++## 6. The Ritual Register
++
++Ceremonial forms used in oaths, chants, blessings, and namings. The same grammar, at ritual heat. Full theory — the seam, the three closes, the double seal, the *kh* taboo, the standing rites: `codex/01-foundations/ritual-theory.md`.
++
++### 6.1 Sacred speech: *ka-*
++
++The prefix **ka-** on the first verb of a ritual utterance marks the whole utterance as sacred speech. In a *ka-* construction the verb takes initial stress, and the sacred phoneme *kh* may appear in ritual words.
++
++- *Ka-koda-n talu ni.* — "In sacred speech: I make this house."
++
++### 6.2 The Oath (binding seal)
++
++The oath inverts the clause: the **object stands first** (what is sworn to, before the swearer), the verb is sacred, the subject is postponed, and the sentence is sealed with a force name:
++
++```
++OBJECT,  ka-VERB-SUBJECT-clitic,  FORCE.
++```
++
++- *Ael, ka-siran, Ael.* — "The Flow — under the Flow, I go. [oath]"
++- When seal and force prefix name the **same** force, the oath is **double-sealed**: it may not be broken.
++
++The oath is closed with **kha** — the sacred-phoneme particle, "so it is sealed":
++
++- *Ael, ka-siran, Ael kha.*
++
++### 6.3 Chant reduplication
++
++- **Full reduplication** of the verb root = the act sustained and repeated, ceremonially: *morav morav* "growing upon growing".
++- **Partial reduplication** (repeated initial syllable) = the act's rhythm: *mo-morav* "growing, in measure".
++- Chants close with a force seal, often with *kha*.
++
++### 6.4 Naming formula
++
++Naming is **re-making**: a naming formula uses the making voice *-el*, because to name is to make a person over.
++
++```
++FORCE,  NAME  kod-el  PREDICATE,  FORCE.
++```
++
++- *Lum, Vela kod-el luma, Lum.* — "Lum — Vela is re-made 'luminous' — under the Light."
++
++---
++
++## 7. Worked Examples
++
++| # | Sentence | Interlinear gloss | Translation | Note |
++|---|----------|-------------------|-------------|------|
++| 1 | *Koda-n talu ni.* | koda-n ‖ talu ‖ ni — make-1SG ‖ house ‖ DEM.NEAR | "I make this house." | base VSO |
++| 2 | *Ne luma-vora-n.* | ne ‖ lum-a-vora-n — NEG ‖ LIGHT-speak-1SG | "I do not speak brightly — I do not speak truth." | force prefix recasts the verb |
++| 3 | *Sira vi no?* | sira ‖ vi ‖ no — go ‖ 3PL ‖ WHERE | "Where do they go?" | wh-slot |
++| 4 | *Ha o-sira ri?* | ha ‖ o-sira ‖ ri — Q ‖ PERF-go ‖ 3SG | "Has she/he/it arrived?" | completive + question |
++| 5 | *Talu turu, syra rav.* | talu ‖ turu, ‖ syra ‖ rav — house ‖ beautiful, ‖ spirit ‖ in-shadow | "The house is beautiful; its spirit rests." | two state clauses, zero verbs |
++| 6 | *Lin lina-kar linai-un.* | lin ‖ lina-kar ‖ linai-un — I ‖ thread-weaver ‖ world-LOC | "I am a weaver in the world." | *linai* "the world" = "all threads" |
++| 7 | *Aelisiran sarun, Ael.* | ael-i-sira-n ‖ sara-un ‖ Ael — FLOW-INCEPT-go-1SG ‖ river-LOC ‖ FLOW(seal) | "I began to flow along the river — under the Flow." | force + aspect written flush; seal |
++| 8 | *Talu e vi-er kod-el, turu.* | talu ‖ e ‖ vi-er kod-el ‖ turu — house ‖ REL ‖ BY-3PL make-MAKING ‖ beautiful | "The house they made is beautiful." | relative + making voice |
++| 9 | *Ael, ka-siran, Ael kha.* | Ael ‖ ka-sira-n ‖ Ael kha — FLOW ‖ SACRED-go-1SG ‖ FLOW SEALED | "The Flow — under the Flow, I go. [oath, closed]" | oath pattern |
++| 10 | *Morav morav, lumavn kelai, Kel.* | morav morav ‖ lum-a-v-n ‖ kelai ‖ Kel — grow-grow ‖ LIGHT-bless-1SG ‖ star-PL ‖ STAR(seal) | "Growing upon growing, I bless the stars — under the Star." | chant: full reduplication |
++
++---
++
++## 8. Writing System
++
++- **Primary script:** the Latin orthography of §3.4.
++- **Kod-script** (the mark-writing) is in development — planned for `codex/04-culture/glyphs/`. Design intent: every glyph is a **single continuous stroke** (one-line writing), mirroring *lin* "thread"; stroke direction encodes the glyph's force lean (Flow strokes travel clockwise, Stone strokes fall, Star strokes radiate outward). Full specification pending.
++
++---
++
++## 9. Computational Notes
++
++LinKod's grammar is designed to map one-to-one onto the LinKod interpreter (blueprint: `codex/03-computation/interpreter.md`):
++
++| Grammar | Computation |
++|---------|-------------|
++| force prefix (`ael-`, `vur-`, …) | the act namespaced under a force |
++| aspect (`i- e- o- u-`) | execution phase: begin / loop / commit / invariant |
++| person clitics | the acting context (who/what runs the act) |
++| making voice `-el` | values coming into being (constructors) |
++| state clause (SP, no verb) | declarations (no side effects) |
++| ritual `ka-` | ceremony blocks (validated, sealed scopes) |
++| oath (O, ka-V-S, FORCE) | contracts: precondition, act, sealed postcondition |
++| force seal | transaction boundary markers |
++| chant reduplication | bounded repetition (loops) |
++
++A LinKod program is a set of sentences; the interpreter executes them the way a speaker utters them — the deed before the doer.
++
++---
++
++## 10. Open Questions & Roadmap
++
++**Open questions** (to resolve in the next draft):
++
++1. Keep *ne* / *ha* as separate particles, or absorb them as verb prefixes?
++2. Mark force lean in the dictionary with a per-entry tag, or leave it to prose notes?
++3. Is a second plural (kin-specific) needed, or is *-ai* enough for now?
++4. Sacred phoneme: keep the *kh*-wordlist minimal, or extend it?
++5. Diphthong *ei* is unused in the starter lexicon — keep it in the inventory?
++
++**Roadmap:** `01-foundations` (First Flow, forces, entities, realms) → lexicon expansion (nature, emotion, social, technology, mythic) → `03-computation` (interpreter blueprint, formal ritual syntax, example programs) → `04-culture` (myths, chants, ceremonies, glyph spec).
+diff --git a/codex/02-language/lexicon/README.md b/codex/02-language/lexicon/README.md
+new file mode 100644
+index 0000000..b664b5d
+--- /dev/null
++++ b/codex/02-language/lexicon/README.md
+@@ -0,0 +1,11 @@
++# 02 — Lexicons
++
++Thematic wordlists, growing out of the starter dictionary (`../dictionary.md`). Planned documents:
++
++- `nature.md` — nature & ecology lexicon (rivers, stones, seasons, creatures)
++- `emotion.md` — emotional & psychological lexicon
++- `social.md` — social & cultural lexicon (kinship, roles, ceremonies)
++- `technology.md` — technology & modern-concepts lexicon
++- `mythic.md` — mythic & ritual lexicon (including the full *kh*-wordlist)
++
++Status: not yet written — the starter dictionary currently holds the base entries.
+diff --git a/codex/03-computation/README.md b/codex/03-computation/README.md
+new file mode 100644
+index 0000000..54f8801
+--- /dev/null
++++ b/codex/03-computation/README.md
+@@ -0,0 +1,9 @@
++# 03 — Symbolic & Computational Tools
++
++How LinKod works as a foundation for expressive computation. Planned documents:
++
++- `interpreter.md` — interpreter blueprint: how sentences become execution (grammar §9 sketches the mapping)
++- `ritual-syntax.md` — formal spec of the ritual register as ceremony blocks and contracts
++- `examples/` — example LinKod programs with traced execution
++
++Status: not yet written. Design constraint: the interpreter must treat grammar and code as one system — a LinKod program is a set of sentences, executed the way a speaker utters them (the deed before the doer).
+diff --git a/codex/04-culture/README.md b/codex/04-culture/README.md
+new file mode 100644
+index 0000000..30c2e91
+--- /dev/null
++++ b/codex/04-culture/README.md
+@@ -0,0 +1,11 @@
++# 04 — Cultural Content
++
++The living text of LinKod. Planned:
++
++- `myths/` — origin myths, force stories, the tale of the First Weaver
++- `chants/` — ritual chants (reduplication structures per grammar §6.3), with force seals
++- `ceremonies/` — ceremonial forms: namings (grammar §6.4), oaths, blessings, gatherings
++- `storytelling.md` — storytelling structures of LinKod narrative
++- `glyphs/` — Kod-script: the single-stroke mark-writing; design intent in grammar §8, full spec pending
++
++Status: not yet written.
+diff --git a/codex/README.md b/codex/README.md
+new file mode 100644
+index 0000000..2d28b28
+--- /dev/null
++++ b/codex/README.md
+@@ -0,0 +1,41 @@
++# The LinKod Codex
++
++The complete symbolic system: foundations, language, computation, and culture.
++
++```
++codex/
++├── 01-foundations/    Mythic foundations — the First Flow, the Eight Sacred Forces,
++│                      mythic entities, realms & cosmology, ritual theory
++├── 02-language/       The linguistic core
++│   ├── grammar.md     Core grammar: phonology, morphology, syntax, ritual syntax
++│   ├── dictionary.md  Starter dictionary (~80 entries)
++│   └── lexicon/       Thematic lexicons: nature, emotion, social, technology, mythic
++├── 03-computation/    Symbolic & computational tools — interpreter blueprint,
++│                      formal ritual-syntax spec, example LinKod programs
++└── 04-culture/        Myths, ritual chants, ceremonies, storytelling structures,
++                       glyphs & calligraphy (Kod-script)
++```
++
++## Reading order
++
++1. `02-language/grammar.md` — start here; it is self-contained and includes a condensed force table and worked examples.
++2. `02-language/dictionary.md` — the working wordlist.
++3. `01-foundations/` — once written, it supplies the cosmology the grammar's force system refers to.
++4. `03-computation/` — how the grammar maps onto the LinKod interpreter.
++5. `04-culture/` — the living text: myths, chants, ceremonies, and the glyph script.
++
++## Status (Codex 0.1)
++
++| Part | Status |
++|------|--------|
++| Core grammar & phonology | ✅ first draft |
++| Starter dictionary | ✅ first draft (~90 entries) |
++| First Flow (origin myth) | ✅ first draft |
++| Eight Sacred Forces (full cosmology) | ✅ first draft |
++| Mythic entities (Linakod, the kelakar) | ✅ first draft |
++| Realms & cosmology (regions, force lean as address) | ✅ first draft |
++| Ritual theory (the seam, the closes, the rites) | ✅ first draft |
++| **Foundations 0.1** | **✅ complete** |
++| Thematic lexicons (nature, emotion, social, technology, mythic) | ⬜ planned |
++| Interpreter blueprint & example programs | ⬜ planned (mapping sketched in grammar §9) |
++| Myths, chants, ceremonies, glyphs | ⬜ planned |
